@@ -1,0 +1,2112 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>6/16-6/17 全國球場高爾夫外地賽報名表</title>
+
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@300;400;600;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* CSS 設計系統 - 極致美觀高爾夫主題 */
+    :root {
+      --primary-color: #1b5e20;
+      /* 深森林綠 */
+      --primary-hover: #2e7d32;
+      /* 鮮綠 */
+      --primary-light: #e8f5e9;
+      /* 極輕綠 */
+      --secondary-color: #a1887f;
+      /* 高爾夫泥土沙坑色 */
+      --text-color: #263238;
+      /* 深灰 */
+      --text-light: #607d8b;
+      /* 淺灰藍 */
+      --bg-color: #f1f8e9;
+      /* 高爾夫草地淺底 */
+      --card-bg: rgba(255, 255, 255, 0.95);
+      --card-border: rgba(255, 255, 255, 0.8);
+      --accent-color: #f57f17;
+      /* 陽光暖橙 */
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+      --shadow-lg: 0 20px 25px -5px rgba(27, 94, 32, 0.1), 0 10px 10px -5px rgba(27, 94, 32, 0.04);
+      --border-radius-sm: 8px;
+      --border-radius-md: 16px;
+      --border-radius-lg: 24px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f1f8e9 0%, #dcedc8 100%);
+      background-attachment: fixed;
+      color: var(--text-color);
+      line-height: 1.6;
+      padding: 20px 10px;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    /* 橫幅頭部 */
+    .header-banner {
+      background: linear-gradient(rgba(27, 94, 32, 0.85), rgba(27, 94, 32, 0.95)), url('https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&w=1200&q=80');
+      background-size: cover;
+      background-position: center;
+      color: #ffffff;
+      padding: 40px 30px;
+      border-radius: var(--border-radius-lg);
+      margin-bottom: 24px;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--card-border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header-banner::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
+      pointer-events: none;
+      animation: rotateBg 20s linear infinite;
+    }
+
+    @keyframes rotateBg {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .header-banner h1 {
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .header-banner h1 i {
+      color: #a1887f;
+      /* 高爾夫球桿/沙坑色搭配 */
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      20%,
+      50%,
+      80%,
+      100% {
+        transform: translateY(0);
+      }
+
+      40% {
+        transform: translateY(-8px);
+      }
+
+      60% {
+        transform: translateY(-4px);
+      }
+    }
+
+    .header-banner p.subtitle {
+      font-size: 1.1rem;
+      color: #c8e6c9;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .header-info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 480px) {
+      .header-info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .header-banner h1 {
+        font-size: 1.6rem;
+      }
+    }
+
+    .info-tag {
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: var(--border-radius-sm);
+      padding: 10px;
+      font-size: 0.9rem;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-align: left;
+    }
+
+    .info-tag i {
+      font-size: 1.2rem;
+      color: #81c784;
+      width: 20px;
+      text-align: center;
+    }
+
+    /* 說明區塊 */
+    .intro-card {
+      background: var(--card-bg);
+      border-radius: var(--border-radius-md);
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--card-border);
+      position: relative;
+    }
+
+    .intro-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 100%;
+      background: var(--primary-color);
+      border-radius: var(--border-radius-md) 0 0 var(--border-radius-md);
+    }
+
+    .intro-card h3 {
+      color: var(--primary-color);
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .intro-card ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .intro-card li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+      color: var(--text-color);
+    }
+
+    .intro-card li::before {
+      content: '⛳';
+      position: absolute;
+      left: 0;
+      top: 2px;
+      font-size: 0.8rem;
+    }
+
+    /* 行程表收折 */
+    .itinerary-toggle {
+      background: #e8f5e9;
+      border: 1px solid #c8e6c9;
+      color: var(--primary-color);
+      border-radius: var(--border-radius-sm);
+      padding: 12px 20px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 24px;
+      transition: var(--transition);
+    }
+
+    .itinerary-toggle:hover {
+      background: #c8e6c9;
+    }
+
+    .itinerary-content {
+      display: none;
+      background: var(--card-bg);
+      border-radius: var(--border-radius-md);
+      padding: 20px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--card-border);
+      overflow-x: auto;
+    }
+
+    .itinerary-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      min-width: 500px;
+    }
+
+    .itinerary-table th,
+    .itinerary-table td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .itinerary-table th {
+      background: var(--primary-light);
+      color: var(--primary-color);
+      font-weight: 700;
+    }
+
+    .itinerary-table tr:hover {
+      background: #fafafa;
+    }
+
+    /* 表單卡片 */
+    .form-card {
+      background: var(--card-bg);
+      border-radius: var(--border-radius-md);
+      padding: 30px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--card-border);
+    }
+
+    @media (max-width: 480px) {
+      .form-card {
+        padding: 20px;
+      }
+    }
+
+    .form-section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 2px dashed #c8e6c9;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .form-group {
+      margin-bottom: 22px;
+    }
+
+    .form-group label.field-label {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-color);
+    }
+
+    .form-group label.field-label span.required {
+      color: red;
+      margin-left: 4px;
+    }
+
+    /* 輸入框 */
+    .input-wrapper {
+      position: relative;
+    }
+
+    .input-wrapper i {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-light);
+      font-size: 1.1rem;
+      transition: var(--transition);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 14px 16px 14px 45px;
+      border-radius: var(--border-radius-sm);
+      border: 2px solid #cfd8dc;
+      font-size: 1rem;
+      color: var(--text-color);
+      background-color: #fafafa;
+      transition: var(--transition);
+      outline: none;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary-color);
+      background-color: #ffffff;
+      box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.15);
+    }
+
+    .form-control:focus+i {
+      color: var(--primary-color);
+    }
+
+    /* 方案卡片網格單選 */
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .option-card-label {
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 16px 20px;
+      border-radius: var(--border-radius-sm);
+      border: 2px solid #cfd8dc;
+      background: #fafafa;
+      cursor: pointer;
+      transition: var(--transition);
+      user-select: none;
+    }
+
+    .option-card-label:hover {
+      border-color: var(--primary-hover);
+      background: #f1f8e9;
+    }
+
+    /* 隱藏原生 Radio */
+    .option-card-label input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .custom-radio {
+      height: 20px;
+      width: 20px;
+      background-color: #ffffff;
+      border: 2px solid #b0bec5;
+      border-radius: 50%;
+      margin-right: 15px;
+      position: relative;
+      flex-shrink: 0;
+      transition: var(--transition);
+    }
+
+    .option-card-label input[type="radio"]:checked~.custom-radio {
+      border-color: var(--primary-color);
+      background-color: var(--primary-color);
+    }
+
+    .custom-radio::after {
+      content: "";
+      position: absolute;
+      display: none;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: white;
+    }
+
+    .option-card-label input[type="radio"]:checked~.custom-radio::after {
+      display: block;
+    }
+
+    .option-card-label input[type="radio"]:checked~.option-card-content {
+      color: var(--primary-color);
+    }
+
+    /* 選中時的卡片框線 */
+    .option-card-label.checked {
+      border-color: var(--primary-color);
+      background: #e8f5e9;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .option-card-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      font-size: 0.95rem;
+    }
+
+    .option-card-name {
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .option-card-badge {
+      background: var(--primary-color);
+      color: #ffffff;
+      padding: 3px 8px;
+      font-size: 0.75rem;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+
+    .option-card-label.checked .option-card-badge {
+      background: #2e7d32;
+    }
+
+    .option-card-price {
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--accent-color);
+    }
+
+    /* 交通方式 & 來賓選擇 (水平並排 / 大選項) */
+    .choice-group-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    @media (max-width: 480px) {
+      .choice-group-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .choice-box-label {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      border-radius: var(--border-radius-sm);
+      border: 2px solid #cfd8dc;
+      background: #fafafa;
+      cursor: pointer;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .choice-box-label:hover {
+      border-color: var(--primary-hover);
+      background: #f1f8e9;
+    }
+
+    .choice-box-label input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .choice-box-icon {
+      font-size: 1.6rem;
+      color: var(--text-light);
+      margin-bottom: 8px;
+      transition: var(--transition);
+    }
+
+    .choice-box-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    .choice-box-desc {
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+
+    .choice-box-label.checked {
+      border-color: var(--primary-color);
+      background: #e8f5e9;
+    }
+
+    .choice-box-label.checked .choice-box-icon {
+      color: var(--primary-color);
+      transform: scale(1.1);
+    }
+
+    /* 用餐複選框樣式 */
+    .checkbox-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .checkbox-item-label {
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 14px 16px;
+      border-radius: var(--border-radius-sm);
+      border: 1px solid #cfd8dc;
+      background: #ffffff;
+      cursor: pointer;
+      transition: var(--transition);
+      user-select: none;
+    }
+
+    .checkbox-item-label input[type="checkbox"] {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .custom-checkbox {
+      height: 20px;
+      width: 20px;
+      background-color: #ffffff;
+      border: 2px solid #b0bec5;
+      border-radius: 4px;
+      margin-right: 15px;
+      position: relative;
+      flex-shrink: 0;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .checkbox-item-label input[type="checkbox"]:checked~.custom-checkbox {
+      border-color: var(--primary-color);
+      background-color: var(--primary-color);
+    }
+
+    .custom-checkbox i {
+      color: white;
+      font-size: 0.75rem;
+      display: none;
+    }
+
+    .checkbox-item-label input[type="checkbox"]:checked~.custom-checkbox i {
+      display: block;
+    }
+
+    .checkbox-item-label.checked {
+      background: #f1f8e9;
+      border-color: #c8e6c9;
+    }
+
+    .checkbox-info {
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    /* 費用計算器面板 (Sticky / 底部固定) */
+    .cost-preview-panel {
+      position: sticky;
+      bottom: 20px;
+      background: rgba(27, 94, 32, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: #ffffff;
+      border-radius: var(--border-radius-md);
+      padding: 20px 24px;
+      box-shadow: 0 10px 30px rgba(27, 94, 32, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      margin-top: 30px;
+      z-index: 100;
+      transition: var(--transition);
+    }
+
+    .cost-preview-header {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #a5d6a7;
+      margin-bottom: 8px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .cost-breakdown-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: #e8f5e9;
+      margin-bottom: 6px;
+    }
+
+    .cost-divider {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.15);
+      margin: 10px 0;
+    }
+
+    .cost-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cost-total-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .cost-total-amount {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #fffb77;
+      /* 亮黃色突顯金額 */
+      font-family: 'Outfit', sans-serif;
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+    }
+
+    .cost-total-amount span.unit {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #ffffff;
+    }
+
+    /* 提交按鈕 */
+    .submit-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #f57f17 0%, #e65100 100%);
+      /* 熱情金黃 */
+      color: white;
+      border: none;
+      padding: 16px 20px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: var(--border-radius-sm);
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(230, 81, 0, 0.4);
+      transition: var(--transition);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(230, 81, 0, 0.6);
+      background: linear-gradient(135deg, #ff9100 0%, #ff3d00 100%);
+    }
+
+    .submit-btn:active {
+      transform: translateY(1px);
+    }
+
+    .submit-btn:disabled {
+      background: #b0bec5;
+      box-shadow: none;
+      cursor: not-allowed;
+    }
+
+    /* 送出彈出視窗與 Modal */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      z-index: 999;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .modal-card {
+      background: white;
+      border-radius: var(--border-radius-md);
+      padding: 35px 30px;
+      max-width: 450px;
+      width: 100%;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      transform: scale(0.9);
+      transition: var(--transition);
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-overlay.active .modal-card {
+      transform: scale(1);
+    }
+
+    .modal-icon {
+      font-size: 4rem;
+      margin-bottom: 20px;
+    }
+
+    .modal-icon.success {
+      color: #2e7d32;
+    }
+
+    .modal-icon.error {
+      color: #c62828;
+    }
+
+    .modal-icon.loading {
+      color: var(--primary-color);
+      animation: spin 1.5s linear infinite;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .modal-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: var(--text-color);
+    }
+
+    .modal-body {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      margin-bottom: 25px;
+      white-space: pre-line;
+      line-height: 1.6;
+    }
+
+    .modal-btn {
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      border-radius: var(--border-radius-sm);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .modal-btn:hover {
+      background: var(--primary-hover);
+    }
+
+    /* 頂部文字與標記 */
+    .required-note {
+      font-size: 0.85rem;
+      color: red;
+      text-align: right;
+      margin-bottom: 10px;
+    }
+
+    /* 查詢與修改按鈕樣式 */
+    .query-btn-container {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 15px;
+      width: 100%;
+    }
+
+    .query-btn {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid #c8e6c9;
+      color: #2e7d32;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
+
+    .query-btn:hover {
+      background: #e8f5e9;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 修改模式橫幅 */
+    .edit-mode-banner {
+      display: none;
+      background: #fffde7;
+      border: 1px solid #fff59d;
+      border-radius: var(--border-radius-md);
+      padding: 15px 20px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+      justify-content: space-between;
+      align-items: center;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .edit-mode-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #5d4037;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .edit-mode-badge {
+      background: #fbc02d;
+      color: #333;
+      padding: 3px 8px;
+      font-size: 0.75rem;
+      border-radius: 4px;
+      font-weight: 800;
+    }
+
+    .edit-mode-cancel {
+      background: #e53935;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .edit-mode-cancel:hover {
+      background: #c62828;
+    }
+
+    /* 手機版鍵盤彈起時，隱藏浮動的費用計算面板以防遮擋輸入畫面 */
+    @media (max-width: 768px) {
+      body.keyboard-open .cost-preview-panel {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- 查詢與修改報名按鈕 -->
+    <div class="query-btn-container">
+      <button type="button" class="query-btn" onclick="openQueryModal()">
+        <i class="fa-solid fa-magnifying-glass"></i> 🔍 查詢 / 修改報名與匯款資料
+      </button>
+    </div>
+
+    <!-- 修改模式橫幅 -->
+    <div class="edit-mode-banner" id="editModeBanner">
+      <div class="edit-mode-title">
+        <span class="edit-mode-badge">修改模式</span>
+        <span>您正在修改 <b id="editTargetName" style="color: var(--primary-color);">球友</b> 的報名資料</span>
+      </div>
+      <button type="button" class="edit-mode-cancel" onclick="cancelEditMode()">取消修改</button>
+    </div>
+
+    <!-- 橫幅頭部 -->
+    <div class="header-banner">
+      <div
+        style="font-size: 0.9rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: #a5d6a7; margin-bottom: 8px;">
+        GOLF TOURNAMENT</div>
+      <h1><i class="fa-solid fa-golf-ball-tear"></i> 全國球場外地賽</h1>
+      <p class="subtitle">2026年 6月16日(二) - 6月17日(三) 兩天一夜</p>
+
+      <div class="header-info-grid">
+        <div class="info-tag">
+          <i class="fa-solid fa-calendar-days"></i>
+          <div>
+            <div style="font-weight:700; font-size:0.85rem;">活動日期</div>
+            <div style="font-size:0.75rem; color:#e8f5e9;">6/16 - 6/17 (二、三)</div>
+          </div>
+        </div>
+        <div class="info-tag">
+          <i class="fa-solid fa-location-dot"></i>
+          <div>
+            <div style="font-weight:700; font-size:0.85rem;">擊球地點</div>
+            <div style="font-size:0.75rem; color:#e8f5e9;">全國花園鄉村俱樂部</div>
+          </div>
+        </div>
+        <div class="info-tag">
+          <i class="fa-solid fa-bus"></i>
+          <div>
+            <div style="font-weight:700; font-size:0.85rem;">出發時間</div>
+            <div style="font-size:0.75rem; color:#e8f5e9;">6/16 早上 8:30 集合</div>
+          </div>
+        </div>
+        <div class="info-tag">
+          <i class="fa-solid fa-hotel"></i>
+          <div>
+            <div style="font-weight:700; font-size:0.85rem;">住宿安排</div>
+            <div style="font-size:0.75rem; color:#e8f5e9;">精選高級單人房 / 雙人房</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 簡短前言卡片 -->
+    <div class="intro-card">
+      <h3><i class="fa-solid fa-circle-info"></i> 親愛的球友們好：</h3>
+      <p style="font-size: 0.95rem; margin-bottom: 12px; color: var(--text-color);">
+        我們即將於 <b>6/16（二）至 6/17（三）</b> 舉辦期待已久的<b>「全國球場外地賽」</b>！本次行程規劃了兩天頂級的全國球場擊球體驗、苗栗好望角及白沙屯媽祖文化之旅，並精心安排在地特色與海鮮慶功晚宴。
+      </p>
+      <ul>
+        <li><b>費用說明</b>：擊球與住宿費用為個人自付項目，將依所選方案現場收取。</li>
+        <li><b>交通安排</b>：搭乘大會豪華遊覽車（三排椅新車）者，每人分攤 1,000 元車資。</li>
+        <li><b>眷屬餐費</b>：歡迎隨行來賓眷屬共襄盛舉，來賓餐費兩天共 3,000 元（不打球不佔床）。</li>
+        <li><b>司機吃住</b>：司機之吃住事宜，將由大會協助妥善安排。</li>
+      </ul>
+    </div>
+
+    <!-- 行程表收折按鈕 -->
+    <button class="itinerary-toggle" id="itineraryToggle">
+      <span><i class="fa-solid fa-map-location-dot"></i> 查看詳細兩日精彩行程表</span>
+      <i class="fa-solid fa-chevron-down" id="itineraryArrow"></i>
+    </button>
+
+    <!-- 行程表內容 (預設隱藏) -->
+    <div class="itinerary-content" id="itineraryContent">
+      <table class="itinerary-table">
+        <thead>
+          <tr>
+            <th style="width: 15%">日期</th>
+            <th style="width: 15%">時間</th>
+            <th style="width: 45%">行程內容</th>
+            <th style="width: 25%">地點/備註</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="4" style="font-weight: 700; color: var(--primary-color);">6/16 (二)</td>
+            <td>08:30</td>
+            <td>集合出發（豪華三排椅遊覽車）</td>
+            <td>行天宮站、民生東路</td>
+          </tr>
+          <tr>
+            <td>12:00</td>
+            <td><b>第一場擊球開球 ⛳</b></td>
+            <td>全國花園鄉村俱樂部</td>
+          </tr>
+          <tr>
+            <td>18:30</td>
+            <td>晚餐聚會 🍻</td>
+            <td>紅芭樂特色餐廳（苗栗）</td>
+          </tr>
+          <tr>
+            <td>20:30</td>
+            <td>辦理入住，飯店休息 🛌</td>
+            <td>苗栗優質飯店</td>
+          </tr>
+          <tr>
+            <td rowspan="6" style="font-weight: 700; color: var(--primary-color);">6/17 (三)</td>
+            <td>07:00</td>
+            <td><b>第二場擊球開球 ⛳</b></td>
+            <td>全國花園鄉村俱樂部</td>
+          </tr>
+          <tr>
+            <td>12:00</td>
+            <td>球場餐廳午餐 🍛</td>
+            <td>全國球場餐廳</td>
+          </tr>
+          <tr>
+            <td>下午</td>
+            <td>景點觀光：後龍好望角 🌅</td>
+            <td>欣賞苗栗絕美海岸線</td>
+          </tr>
+          <tr>
+            <td>下午</td>
+            <td>白沙屯拱天宮 ⛩️</td>
+            <td>媽祖文化體驗與祈福</td>
+          </tr>
+          <tr>
+            <td>18:00</td>
+            <td>慶功晚宴 🍲</td>
+            <td>廣德海鮮餐廳（桃園楊梅店）</td>
+          </tr>
+          <tr>
+            <td>20:30</td>
+            <td>安全抵達台北</td>
+            <td>預計 20:30 抵達台北</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 報名表單 -->
+    <form id="golfForm" onsubmit="handleFormSubmit(event)">
+
+      <!-- 欄位組 1：基本資料 -->
+      <div class="form-card">
+        <div class="form-section-title">
+          <i class="fa-solid fa-id-card"></i> 第一步：球友基本資料
+        </div>
+        <div class="required-note">* 為必填項目</div>
+
+        <!-- 姓名 -->
+        <div class="form-group">
+          <label class="field-label" for="name">球友姓名 <span class="required">*</span></label>
+          <div class="input-wrapper">
+            <input type="text" id="name" name="name" class="form-control" placeholder="請輸入姓名" required
+              autocomplete="name">
+            <i class="fa-solid fa-user"></i>
+          </div>
+        </div>
+
+        <!-- 球友身份 -->
+        <div class="form-group">
+          <label class="field-label" for="memberType">球友身份 <span class="required">*</span></label>
+          <div style="display: flex; gap: 12px; align-items: flex-start; flex-wrap: wrap;">
+            <div class="input-wrapper" style="flex: 1; min-width: 180px;">
+              <select id="memberType" name="memberType" class="form-control" required
+                style="padding-left: 42px; appearance: none; cursor: pointer;"
+                onchange="toggleReferrer(this)">
+                <option value="" disabled selected>請選擇身份</option>
+                <option value="世華群英隊隊友">世華群英隊隊友</option>
+                <option value="來賓">來賓</option>
+              </select>
+              <i class="fa-solid fa-users"></i>
+            </div>
+            <div id="referrerGroup" class="input-wrapper" style="flex: 1; min-width: 180px; display: none;">
+              <input type="text" id="referrerName" name="referrerName" class="form-control"
+                placeholder="介紹人姓名">
+              <i class="fa-solid fa-user-tie"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- 電話 -->
+        <div class="form-group">
+          <label class="field-label" for="phone">聯絡電話 <span class="required">*</span></label>
+          <div class="input-wrapper">
+            <input type="tel" id="phone" name="phone" class="form-control" placeholder="如：0912-345678" required
+              autocomplete="tel">
+            <i class="fa-solid fa-phone"></i>
+          </div>
+        </div>
+
+        <!-- Email 電子郵件 -->
+        <div class="form-group">
+          <label class="field-label" for="email">電子郵件 <span class="required">*</span></label>
+          <div class="input-wrapper">
+            <input type="email" id="email" name="email" class="form-control" placeholder="如：player@example.com" required
+              autocomplete="email">
+            <i class="fa-solid fa-envelope"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- 欄位組 2：參加方案 -->
+      <div class="form-card">
+        <div class="form-section-title">
+          <i class="fa-solid fa-golf-ball-tear"></i> 第二步：選擇您的參加方案 (當天自付)
+        </div>
+
+        <div class="form-group">
+          <label class="field-label">請選擇擊球與住宿方案 <span class="required">*</span></label>
+          <div class="options-grid">
+
+            <!-- 方案 A -->
+            <label class="option-card-label" onclick="selectRadio(this)">
+              <input type="radio" name="package" value="方案 A：2球+1宿+雙人房" data-price="7370" required>
+              <div class="custom-radio"></div>
+              <div class="option-card-content">
+                <div class="option-card-name">
+                  <span>方案 A</span>
+                  <span class="option-card-badge">2球 + 雙人房</span>
+                </div>
+                <div class="option-card-price">NT$ 7,370</div>
+              </div>
+            </label>
+
+            <!-- 方案 B -->
+            <label class="option-card-label" onclick="selectRadio(this)">
+              <input type="radio" name="package" value="方案 B：2球+1宿+單人房" data-price="8970">
+              <div class="custom-radio"></div>
+              <div class="option-card-content">
+                <div class="option-card-name">
+                  <span>方案 B</span>
+                  <span class="option-card-badge">2球 + 單人房</span>
+                </div>
+                <div class="option-card-price">NT$ 8,970</div>
+              </div>
+            </label>
+
+            <!-- 方案 C -->
+            <label class="option-card-label" onclick="selectRadio(this)">
+              <input type="radio" name="package" value="方案 C：1球+1宿+雙人房" data-price="4960">
+              <div class="custom-radio"></div>
+              <div class="option-card-content">
+                <div class="option-card-name">
+                  <span>方案 C</span>
+                  <span class="option-card-badge">1球 + 雙人房</span>
+                </div>
+                <div class="option-card-price">NT$ 4,960</div>
+              </div>
+            </label>
+
+            <!-- 方案 D -->
+            <label class="option-card-label" onclick="selectRadio(this)">
+              <input type="radio" name="package" value="方案 D：1球+1宿+單人房" data-price="6560">
+              <div class="custom-radio"></div>
+              <div class="option-card-content">
+                <div class="option-card-name">
+                  <span>方案 D</span>
+                  <span class="option-card-badge">1球 + 單人房</span>
+                </div>
+                <div class="option-card-price">NT$ 6,560</div>
+              </div>
+            </label>
+
+            <!-- 方案 E -->
+            <label class="option-card-label" onclick="selectRadio(this)">
+              <input type="radio" name="package" value="方案 E：只打球6/16" data-price="3400">
+              <div class="custom-radio"></div>
+              <div class="option-card-content">
+                <div class="option-card-name">
+                  <span>方案 E</span>
+                  <span class="option-card-badge">只打第一日 6/16</span>
+                </div>
+                <div class="option-card-price">NT$ 3,400</div>
+              </div>
+            </label>
+
+            <!-- 方案 F -->
+            <label class="option-card-label" onclick="selectRadio(this)">
+              <input type="radio" name="package" value="方案 F：只打球第二日6/17" data-price="3400">
+              <div class="custom-radio"></div>
+              <div class="option-card-content">
+                <div class="option-card-name">
+                  <span>方案 F</span>
+                  <span class="option-card-badge">只打第二日 6/17</span>
+                </div>
+                <div class="option-card-price">NT$ 3,400</div>
+              </div>
+            </label>
+
+            <!-- 方案 G -->
+            <label class="option-card-label" onclick="selectRadio(this)">
+              <input type="radio" name="package" value="方案 G：打球+住宿(自行處理)" data-price="0">
+              <div class="custom-radio"></div>
+              <div class="option-card-content">
+                <div class="option-card-name">
+                  <span>方案 G</span>
+                  <span class="option-card-badge" style="background:#78909c;">打球+住宿 (自理)</span>
+                </div>
+                <div class="option-card-price">NT$ 0</div>
+              </div>
+            </label>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- 欄位組 3：交通安排 -->
+      <div class="form-card">
+        <div class="form-section-title">
+          <i class="fa-solid fa-bus"></i> 第三步：交通方式選擇 (須先匯款)
+        </div>
+
+        <div class="form-group">
+          <label class="field-label">請選擇您的去回交通工具 <span class="required">*</span></label>
+          <div class="choice-group-row">
+
+            <label class="choice-box-label" id="transportBusLabel" onclick="selectTransport(this)">
+              <input type="radio" name="transport" value="搭乘大車遊覽車" data-price="1000" required>
+              <i class="fa-solid fa-bus choice-box-icon"></i>
+              <div class="choice-box-title">搭乘大車遊覽車</div>
+              <div class="choice-box-desc">+NT$ 1,000 元/車資</div>
+            </label>
+
+            <label class="choice-box-label" id="transportSelfLabel" onclick="selectTransport(this)">
+              <input type="radio" name="transport" value="自行前往球場" data-price="0">
+              <i class="fa-solid fa-car choice-box-icon"></i>
+              <div class="choice-box-title">自行前往</div>
+              <div class="choice-box-desc">NT$ 0 元</div>
+            </label>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- 欄位組 4：用餐統計 -->
+      <div class="form-card">
+        <div class="form-section-title">
+          <i class="fa-solid fa-utensils"></i> 第四步：用餐統計 (來賓自付，1天 NT$1,500 / 2天 NT$3,000)
+        </div>
+
+        <!-- 用餐選項 (單選) -->
+        <div class="form-group">
+          <label class="field-label">請選擇用餐場次 <span class="required">*</span></label>
+          <div class="choice-group-row" style="grid-template-columns: repeat(1, 1fr); gap: 10px;">
+
+            <label class="choice-box-label" id="mealDay1Label" onclick="selectMeal(this)" style="flex-direction: row; align-items: center; gap: 14px; padding: 14px 18px;">
+              <input type="radio" name="mealOption" value="僅用餐第1天(6/16)" data-meal-cost="1500" required>
+              <i class="fa-solid fa-bowl-food choice-box-icon" style="font-size:1.4rem; min-width:36px;"></i>
+              <div>
+                <div class="choice-box-title">僅用餐第 1 天 (6/16)</div>
+                <div class="choice-box-desc">6/16 晚餐・紅芭樂特色餐廳 ・NT$ 1,500</div>
+              </div>
+            </label>
+
+            <label class="choice-box-label" id="mealDay2Label" onclick="selectMeal(this)" style="flex-direction: row; align-items: center; gap: 14px; padding: 14px 18px;">
+              <input type="radio" name="mealOption" value="僅用餐第2天(6/17)" data-meal-cost="1500">
+              <i class="fa-solid fa-bowl-food choice-box-icon" style="font-size:1.4rem; min-width:36px;"></i>
+              <div>
+                <div class="choice-box-title">僅用餐第 2 天 (6/17)</div>
+                <div class="choice-box-desc">6/17 午餐・球場餐廳 + 晚餐・廣德海鮮 ・NT$ 1,500</div>
+              </div>
+            </label>
+
+            <label class="choice-box-label" id="mealBothLabel" onclick="selectMeal(this)" style="flex-direction: row; align-items: center; gap: 14px; padding: 14px 18px;">
+              <input type="radio" name="mealOption" value="兩天都用餐(6/16+6/17)" data-meal-cost="3000">
+              <i class="fa-solid fa-utensils choice-box-icon" style="font-size:1.4rem; min-width:36px;"></i>
+              <div>
+                <div class="choice-box-title">兩天都用餐 (6/16 + 6/17)</div>
+                <div class="choice-box-desc">6/16 晚餐 + 6/17 午餐 + 晚餐 ・NT$ 3,000</div>
+              </div>
+            </label>
+
+            <label class="choice-box-label" id="mealNoneLabel" onclick="selectMeal(this)" style="flex-direction: row; align-items: center; gap: 14px; padding: 14px 18px;">
+              <input type="radio" name="mealOption" value="不用餐" data-meal-cost="0">
+              <i class="fa-solid fa-ban choice-box-icon" style="font-size:1.4rem; min-width:36px; color: #9e9e9e;"></i>
+              <div>
+                <div class="choice-box-title" style="color: var(--text-light);">不用餐</div>
+                <div class="choice-box-desc">NT$ 0</div>
+              </div>
+            </label>
+
+          </div>
+        </div>
+
+        <!-- 特殊餐飲需求 -->
+        <div class="form-group" style="margin-top: 16px;">
+          <label class="field-label" for="guestNotes">特殊餐飲需求 (例如素食或過敏)</label>
+          <div class="input-wrapper">
+            <input type="text" id="guestNotes" name="guestNotes" class="form-control" placeholder="如有素食或食物過敏，請填寫">
+            <i class="fa-solid fa-leaf"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- 欄位組 5：乘車保險資料填寫 -->
+      <div class="form-card" id="insuranceStepCard">
+        <div class="form-section-title">
+          <i class="fa-solid fa-shield-halved"></i> 第五步：乘車保險資料填寫
+        </div>
+
+        <!-- 自行前往提示區塊 -->
+        <div id="insuranceSelfBanner" style="background: #e8f5e9; border: 1px solid #c8e6c9; border-radius: var(--border-radius-sm); padding: 20px; display: none;">
+          <div style="font-size: 0.95rem; color: var(--primary-color); display: flex; align-items: center; gap: 8px; font-weight: 700;">
+            <i class="fa-solid fa-circle-info" style="font-size: 1.2rem;"></i>
+            <span>您已選擇「自行前往」，本步驟免填寫保險資料。</span>
+          </div>
+        </div>
+
+        <!-- 保險資料輸入區塊 -->
+        <div id="insuranceFieldsContainer">
+          <div style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 15px; line-height: 1.5;">
+            <i class="fa-solid fa-circle-exclamation" style="color: var(--accent-color); margin-right: 4px;"></i>
+            依交通安全法規，搭乘大會遊覽車之人員必須投保乘客險。請確實填寫以下保險資料：
+          </div>
+
+          <!-- 球友本人保險資料 -->
+          <div id="playerInsuranceSection" style="margin-top: 10px;">
+            <h4 style="color: var(--primary-color); font-size: 0.95rem; font-weight: 800; border-left: 4px solid var(--primary-color); padding-left: 8px; margin-bottom: 15px;">
+              👤 球友本人保險資料
+            </h4>
+            
+            <div class="form-group">
+              <label class="field-label" for="playerDob">出生年月日 <span class="required">*</span></label>
+              <div class="input-wrapper">
+                <input type="date" id="playerDob" name="playerDob" class="form-control">
+                <i class="fa-solid fa-cake-candles"></i>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="field-label" for="playerIdCard">身分證字號 <span class="required">*</span></label>
+              <div class="input-wrapper">
+                <input type="text" id="playerIdCard" name="playerIdCard" class="form-control" placeholder="如：A123456789" pattern="^[a-zA-Z][1-2]\d{8}$" oninput="this.value = this.value.toUpperCase()">
+                <i class="fa-solid fa-id-card"></i>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="field-label" for="playerEmergContact">緊急聯絡人 <span class="required">*</span></label>
+              <div class="input-wrapper">
+                <input type="text" id="playerEmergContact" name="playerEmergContact" class="form-control" placeholder="請輸入聯絡人姓名">
+                <i class="fa-solid fa-user-shield"></i>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="field-label" for="playerEmergPhone">緊急聯絡電話 <span class="required">*</span></label>
+              <div class="input-wrapper">
+                <input type="tel" id="playerEmergPhone" name="playerEmergPhone" class="form-control" placeholder="請輸入聯絡電話">
+                <i class="fa-solid fa-phone-flip"></i>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 欄位組 6：特別備註與匯款資訊 -->
+      <div class="form-card">
+        <div class="form-section-title">
+          <i class="fa-solid fa-money-bill-transfer"></i> 第六步：特別備註與匯款資訊
+        </div>
+
+        <!-- 匯款帳戶資訊區塊 -->
+        <div
+          style="background: #e8f5e9; border: 1px solid #c8e6c9; border-radius: var(--border-radius-sm); padding: 16px 20px; margin-bottom: 20px;">
+          <h4
+            style="color: var(--primary-color); margin-bottom: 10px; font-weight: 800; font-size: 0.95rem; display: flex; align-items: center; gap: 8px;">
+            <i class="fa-solid fa-bank"></i> 大會專屬匯款對帳帳戶
+          </h4>
+          <div style="font-size: 0.9rem; color: var(--text-color); line-height: 1.6;">
+            <div><b>銀行名稱</b>：合作金庫銀行 (銀行代碼：006)</div>
+            <div><b>戶名</b>：全國球場高爾夫球大會</div>
+            <div><b>匯款帳號</b>：0060-123-456789</div>
+            <div
+              style="font-size: 0.8rem; color: #558b2f; font-weight: 700; margin-top: 8px; display: flex; align-items: center; gap: 4px;">
+              <i class="fa-solid fa-circle-exclamation"></i>
+              <span>匯款完成後，請在此填寫帳號後 5 碼，或隨時回來使用頂部「查詢/修改」回報，以利財務對帳。</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 匯款日期欄位 -->
+        <div class="form-group" style="margin-bottom: 20px;">
+          <label class="field-label" for="bankDate">匯款日期 <span
+              style="font-size: 0.8rem; color: var(--text-light); font-weight: normal;">(選填，可於匯款後再修改回報)</span></label>
+          <div class="input-wrapper">
+            <input type="date" id="bankDate" name="bankDate" class="form-control">
+            <i class="fa-solid fa-calendar-check"></i>
+          </div>
+        </div>
+
+        <!-- 匯款後五碼欄位 -->
+        <div class="form-group" style="margin-bottom: 20px;">
+          <label class="field-label" for="bankLast5">匯款帳號後 5 碼 <span
+              style="font-size: 0.8rem; color: var(--text-light); font-weight: normal;">(選填，可於匯款後再修改回報)</span></label>
+          <div class="input-wrapper">
+            <input type="text" id="bankLast5" name="bankLast5" class="form-control"
+              placeholder="請輸入 5 碼數字 (如：12345，未匯款可先留空)" maxlength="5" pattern="\d{5}"
+              oninput="this.value = this.value.replace(/[^\d]/g, '')">
+            <i class="fa-solid fa-money-check-dollar"></i>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="field-label" for="notes">其他需求或特別說明 (同房、素食需求等)</label>
+          <div class="input-wrapper">
+            <textarea id="notes" name="notes" class="form-control"
+              style="padding-left: 15px; height: 80px; resize: none;"
+              placeholder="例如：素食需求、指定與某某球友同房、或是對行程的提問..."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- 實時計費面板 -->
+      <div class="cost-preview-panel">
+        <div class="cost-preview-header">
+          <i class="fa-solid fa-calculator"></i> 報名預估總費用試算
+        </div>
+
+        <!-- 當天自付區塊 -->
+        <div style="font-size: 0.75rem; font-weight: 700; color: #fffb77; letter-spacing: 0.5px; margin-bottom: 4px; opacity: 0.85;">💳 個人當天自付</div>
+        <div class="cost-breakdown-row">
+          <span>擊球與住宿方案費用：</span>
+          <span id="previewPackageCost">NT$ 0</span>
+        </div>
+
+        <div class="cost-divider" style="margin: 8px 0;"></div>
+
+        <!-- 須先匯款區塊 -->
+        <div style="font-size: 0.75rem; font-weight: 700; color: #ffcc80; letter-spacing: 0.5px; margin-bottom: 4px; opacity: 0.85;">🏦 請先匯款</div>
+        <div class="cost-breakdown-row">
+          <span>大車交通車資費用：</span>
+          <span id="previewTransportCost">NT$ 0</span>
+        </div>
+
+        <div class="cost-breakdown-row">
+          <span>餐費：</span>
+          <span id="previewMealCost">NT$ 0</span>
+        </div>
+
+        <div class="cost-divider"></div>
+
+        <div class="cost-total-row">
+          <div class="cost-total-title">預估個人本次總額：</div>
+          <div class="cost-total-amount" id="previewTotalCost">
+            0<span class="unit">元</span>
+          </div>
+        </div>
+
+        <!-- 提交按鈕 -->
+        <button type="submit" class="submit-btn" id="submitBtn">
+          <i class="fa-solid fa-paper-plane"></i> 提交報名表單
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- Modal 提示彈窗 -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-card">
+      <div class="modal-icon" id="modalIcon"></div>
+      <div class="modal-title" id="modalTitle"></div>
+      <div class="modal-body" id="modalBody"></div>
+      <button class="modal-btn" id="modalBtn" onclick="closeModal()">確認</button>
+    </div>
+  </div>
+
+  <!-- 查詢與修改 Modal 彈窗 -->
+  <div class="modal-overlay" id="queryModalOverlay">
+    <div class="modal-card" style="max-width: 400px; padding: 30px;">
+      <div class="modal-icon" style="color: var(--primary-color); font-size: 3.5rem; margin-bottom: 15px;">
+        <i class="fa-solid fa-clipboard-question"></i>
+      </div>
+      <div class="modal-title" style="font-size: 1.3rem; margin-bottom: 10px;">查詢 / 修改您的報名資料</div>
+      <div class="modal-body" style="font-size: 0.9rem; margin-bottom: 20px; color: var(--text-light);">
+        請輸入您報名時填寫的<b>「聯絡電話」</b>。<br>系統將即時載入您的報名明細，以便進行變更或補填「匯款帳號後 5 碼」。
+      </div>
+      <div class="form-group" style="text-align: left; margin-bottom: 20px;">
+        <div class="input-wrapper">
+          <input type="tel" id="queryPhone" class="form-control" placeholder="如：0912-345678" style="padding-left: 45px;"
+            required>
+          <i class="fa-solid fa-phone" style="left: 15px;"></i>
+        </div>
+      </div>
+      <div style="display: flex; gap: 10px; justify-content: center;">
+        <button class="modal-btn" style="background: #cfd8dc; color: var(--text-color);"
+          onclick="closeQueryModal()">取消</button>
+        <button class="modal-btn" id="querySearchBtn" onclick="searchRegistration()">確認查詢</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript 控制邏輯 -->
+  <script>
+    // 行程表收折控制
+    const itineraryToggle = document.getElementById('itineraryToggle');
+    const itineraryContent = document.getElementById('itineraryContent');
+    const itineraryArrow = document.getElementById('itineraryArrow');
+
+    itineraryToggle.addEventListener('click', () => {
+      const isVisible = itineraryContent.style.display === 'block';
+      itineraryContent.style.display = isVisible ? 'none' : 'block';
+      itineraryArrow.style.transform = isVisible ? 'rotate(0deg)' : 'rotate(180deg)';
+      itineraryArrow.style.transition = 'transform 0.3s ease';
+    });
+
+    // 表單元素選取視覺強化與費用即時試算
+    function selectRadio(labelElement) {
+      // 移除同組所有標記
+      const siblingLabels = labelElement.parentNode.querySelectorAll('.option-card-label');
+      siblingLabels.forEach(lbl => lbl.classList.remove('checked'));
+      // 標記自己
+      labelElement.classList.add('checked');
+
+      // 觸發原生 radio
+      const radio = labelElement.querySelector('input[type="radio"]');
+      radio.checked = true;
+
+      calculateCost();
+    }
+
+    // 用於支援鍵盤點擊方案
+    window.selectRadio = selectRadio;
+
+    function selectTransport(labelElement) {
+      const siblingLabels = labelElement.parentNode.querySelectorAll('.choice-box-label');
+      siblingLabels.forEach(lbl => lbl.classList.remove('checked'));
+      labelElement.classList.add('checked');
+
+      const radio = labelElement.querySelector('input[type="radio"]');
+      radio.checked = true;
+
+      calculateCost();
+    }
+
+    // 切換介紹人欄位顯示
+    function toggleReferrer(selectEl) {
+      const referrerGroup = document.getElementById('referrerGroup');
+      const referrerInput = document.getElementById('referrerName');
+      if (selectEl.value === '來賓') {
+        referrerGroup.style.display = 'flex';
+        referrerInput.setAttribute('required', 'true');
+      } else {
+        referrerGroup.style.display = 'none';
+        referrerInput.removeAttribute('required');
+        referrerInput.value = '';
+      }
+      // 身份改變時立即重新試算 (影響餐費)
+      calculateCost();
+    }
+
+    // 用餐選項單選
+    function selectMeal(labelElement) {
+      const siblingLabels = labelElement.parentNode.querySelectorAll('.choice-box-label');
+      siblingLabels.forEach(lbl => lbl.classList.remove('checked'));
+      labelElement.classList.add('checked');
+
+      const radio = labelElement.querySelector('input[type="radio"]');
+      radio.checked = true;
+
+      calculateCost();
+    }
+
+    // 費用試算核心程式碼
+    function calculateCost() {
+      let packageCost = 0;
+      let transportCost = 0;
+      let mealCost = 0;
+
+      // 1. 抓方案價格
+      const selectedPackage = document.querySelector('input[name="package"]:checked');
+      if (selectedPackage) {
+        packageCost = parseInt(selectedPackage.getAttribute('data-price')) || 0;
+        document.getElementById('previewPackageCost').innerText = 'NT$ ' + packageCost.toLocaleString() + ' 元';
+      } else {
+        document.getElementById('previewPackageCost').innerText = '尚未選擇方案';
+      }
+
+      // 2. 判斷大車交通費
+      const selectedTransport = document.querySelector('input[name="transport"]:checked');
+      const ridesBus = selectedTransport && selectedTransport.value === '搭乘大車遊覽車';
+      if (selectedTransport) {
+        transportCost = parseInt(selectedTransport.getAttribute('data-price')) || 0;
+        document.getElementById('previewTransportCost').innerText = 'NT$ ' + transportCost.toLocaleString() + ' 元';
+      } else {
+        document.getElementById('previewTransportCost').innerText = '尚未選擇交通';
+      }
+
+      // 3. 抓用餐選項費用 (單選)；隊友免費，來賓才收費
+      const selectedMeal = document.querySelector('input[name="mealOption"]:checked');
+      const memberType = document.getElementById('memberType')?.value || '';
+      const isGuest = memberType === '來賓';
+
+      if (selectedMeal) {
+        if (isGuest) {
+          mealCost = parseInt(selectedMeal.getAttribute('data-meal-cost')) || 0;
+          document.getElementById('previewMealCost').innerHTML =
+            'NT$ ' + mealCost.toLocaleString() + ' 元';
+        } else {
+          mealCost = 0;
+          document.getElementById('previewMealCost').innerHTML =
+            'NT$ 0 元' +
+            (memberType ? ' <span style="font-size:0.72rem; color:#a5d6a7; font-weight:600;">(隊友免費)</span>' : '');
+        }
+      } else {
+        mealCost = 0;
+        document.getElementById('previewMealCost').innerText = '尚未選擇用餐';
+      }
+
+      // 4. 總費用加總
+      const totalCost = packageCost + transportCost + mealCost;
+      document.getElementById('previewTotalCost').innerHTML = totalCost.toLocaleString() + ' <span class="unit">元</span>';
+
+      // 動態更新乘車保險欄位狀態
+      updateInsuranceStepState();
+
+      return {
+        package: selectedPackage ? selectedPackage.value : '',
+        packageCost: packageCost,
+        transport: selectedTransport ? selectedTransport.value : '',
+        transportCost: transportCost,
+        mealOption: selectedMeal ? selectedMeal.value : '',
+        mealCost: mealCost,
+        totalCost: totalCost
+      };
+    }
+
+    // 動態更新第五步「乘車保險資料」的顯示與必填屬性
+    function updateInsuranceStepState() {
+      const selectedTransport = document.querySelector('input[name="transport"]:checked');
+      const ridesBus = selectedTransport && selectedTransport.value === '搭乘大車遊覽車';
+
+      const selfBanner = document.getElementById('insuranceSelfBanner');
+      const fieldsContainer = document.getElementById('insuranceFieldsContainer');
+
+      const playerFields = ['playerDob', 'playerIdCard', 'playerEmergContact', 'playerEmergPhone'];
+
+      if (ridesBus) {
+        selfBanner.style.display = 'none';
+        fieldsContainer.style.display = 'block';
+        playerFields.forEach(id => {
+          document.getElementById(id).setAttribute('required', 'true');
+        });
+      } else {
+        selfBanner.style.display = 'block';
+        fieldsContainer.style.display = 'none';
+        playerFields.forEach(id => {
+          const input = document.getElementById(id);
+          input.removeAttribute('required');
+          if (currentEditRowIndex === null) {
+            input.value = '';
+          }
+        });
+      }
+    }
+
+    // 頁面初次載入，設定預設值並試算
+    window.addEventListener('DOMContentLoaded', () => {
+      const defaultPackageInput = document.querySelector('input[name="package"][value="方案 A：2球+1宿+雙人房"]');
+      if (defaultPackageInput) {
+        defaultPackageInput.checked = true;
+        defaultPackageInput.closest('.option-card-label').classList.add('checked');
+      }
+
+      const defaultTransportInput = document.querySelector('input[name="transport"][value="搭乘大車遊覽車"]');
+      if (defaultTransportInput) {
+        defaultTransportInput.checked = true;
+        document.getElementById('transportBusLabel').classList.add('checked');
+      }
+
+      calculateCost();
+    });
+
+    let currentEditRowIndex = null;
+
+    function openQueryModal() {
+      document.getElementById('queryPhone').value = '';
+      document.getElementById('queryModalOverlay').classList.add('active');
+    }
+
+    function closeQueryModal() {
+      document.getElementById('queryModalOverlay').classList.remove('active');
+    }
+
+    function searchRegistration() {
+      const phoneInput = document.getElementById('queryPhone').value.trim();
+      if (!phoneInput) {
+        alert('請輸入電話號碼！');
+        return;
+      }
+
+      const searchBtn = document.getElementById('querySearchBtn');
+      searchBtn.disabled = true;
+      searchBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 查詢中...';
+
+      if (typeof google !== 'undefined' && google.script && google.script.run) {
+        google.script.run
+          .withSuccessHandler(function (response) {
+            searchBtn.disabled = false;
+            searchBtn.innerText = '確認查詢';
+
+            if (response && response.status === 'found') {
+              closeQueryModal();
+              enterEditMode(response);
+            } else {
+              alert('查無報名紀錄，請確認電話號碼是否與報名時一致。\n(格式支援 0912345678 或 0912-345678)');
+            }
+          })
+          .withFailureHandler(function (error) {
+            searchBtn.disabled = false;
+            searchBtn.innerText = '確認查詢';
+            alert('查詢出錯，請確保已上傳 GAS 後端伺服器：' + error.toString());
+          })
+          .getRegistrationByPhone(phoneInput);
+      } else {
+        setTimeout(() => {
+          searchBtn.disabled = false;
+          searchBtn.innerText = '確認查詢';
+
+          closeQueryModal();
+          // 模擬回傳一筆測試資料
+          const mockResponse = {
+            rowIndex: 5,
+            name: "測試林",
+            phone: phoneInput,
+            email: "test@gmail.com",
+            memberType: "世華群英隊隊友",
+            referrerName: "",
+            package: "方案 G：打球+住宿(自行處理)",
+            packageCost: 0,
+            transport: "搭乘大車遊覽車",
+            transportCost: 1000,
+            mealOption: "兩天都用餐(6/16+6/17)",
+            mealCost: 3000,
+            guestNotes: "",
+            playerDob: "1980-01-01",
+            playerIdCard: "A123456789",
+            playerEmergContact: "緊急球友",
+            playerEmergPhone: "0922333444",
+            bankDate: "2026-06-01",
+            bankLast5: "54321",
+            notes: "測試修改"
+          };
+          enterEditMode(mockResponse);
+        }, 1000);
+      }
+    }
+
+    // 進入修改模式
+    function enterEditMode(data) {
+      currentEditRowIndex = data.rowIndex;
+
+      // 顯示橫幅與更新姓名
+      const banner = document.getElementById('editModeBanner');
+      document.getElementById('editTargetName').innerText = data.name;
+      banner.style.display = 'flex';
+
+      // 填充表單欄位
+      document.getElementById('name').value = data.name;
+      document.getElementById('phone').value = data.phone;
+      document.getElementById('email').value = data.email;
+
+      // 填充球友身份
+      const memberTypeSelect = document.getElementById('memberType');
+      if (memberTypeSelect && data.memberType) {
+        memberTypeSelect.value = data.memberType;
+        toggleReferrer(memberTypeSelect);
+        if (data.referrerName) {
+          document.getElementById('referrerName').value = data.referrerName;
+        }
+      }
+
+      // 填充方案 (Radio)
+      const packageRadio = document.querySelector(`input[name="package"][value="${data.package}"]`);
+      if (packageRadio) {
+        packageRadio.checked = true;
+        document.querySelectorAll('.option-card-label').forEach(lbl => lbl.classList.remove('checked'));
+        packageRadio.closest('.option-card-label').classList.add('checked');
+      }
+
+      // 填充交通方式 (Radio)
+      const transportRadio = document.querySelector(`input[name="transport"][value="${data.transport}"]`);
+      if (transportRadio) {
+        transportRadio.checked = true;
+        document.querySelectorAll('.choice-box-label').forEach(lbl => lbl.classList.remove('checked'));
+        transportRadio.closest('.choice-box-label').classList.add('checked');
+      }
+
+      // 填充用餐選項 (Radio)
+      const mealRadio = document.querySelector(`input[name="mealOption"][value="${data.mealOption}"]`);
+      if (mealRadio) {
+        mealRadio.checked = true;
+        const mealLabels = mealRadio.closest('.choice-group-row').querySelectorAll('.choice-box-label');
+        mealLabels.forEach(lbl => lbl.classList.remove('checked'));
+        mealRadio.closest('.choice-box-label').classList.add('checked');
+      }
+
+      // 特殊餐飲需求
+      document.getElementById('guestNotes').value = data.guestNotes || '';
+
+      // 填充保險與匯款日期
+      document.getElementById('playerDob').value = data.playerDob || '';
+      document.getElementById('playerIdCard').value = data.playerIdCard || '';
+      document.getElementById('playerEmergContact').value = data.playerEmergContact || '';
+      document.getElementById('playerEmergPhone').value = data.playerEmergPhone || '';
+
+      document.getElementById('bankDate').value = data.bankDate || '';
+      document.getElementById('bankLast5').value = data.bankLast5 || '';
+      document.getElementById('notes').value = data.notes || '';
+
+      // 重新計算費用
+      calculateCost();
+
+      // 修改提交按鈕文字與外觀
+      const submitBtn = document.getElementById('submitBtn');
+      submitBtn.innerHTML = '<i class="fa-solid fa-floppy-disk"></i> 儲存並更新報名資料';
+      submitBtn.style.background = 'linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%)';
+      submitBtn.style.boxShadow = '0 4px 15px rgba(27, 94, 32, 0.4)';
+
+      // 滑動回最上方，讓使用者知道進入修改狀態
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // 取消修改模式
+    function cancelEditMode() {
+      currentEditRowIndex = null;
+      document.getElementById('editModeBanner').style.display = 'none';
+
+      // 重置表單為原始狀態
+      document.getElementById('golfForm').reset();
+      resetFormStates();
+
+      // 還原提交按鈕外觀
+      const submitBtn = document.getElementById('submitBtn');
+      submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> 提交報名表單';
+      submitBtn.style.background = 'linear-gradient(135deg, #f57f17 0%, #e65100 100%)';
+      submitBtn.style.boxShadow = '0 4px 15px rgba(230, 81, 0, 0.4)';
+    }
+
+    // 處理表單提交
+    function handleFormSubmit(event) {
+      event.preventDefault();
+
+      const submitBtn = document.getElementById('submitBtn');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 正在傳送資料...';
+
+      const isEdit = currentEditRowIndex !== null;
+      const loadingTitle = isEdit ? '正在更新報名資訊' : '正在儲存報名資訊';
+      showModal('loading', loadingTitle, '系統正在寫入 Google 試算表，請稍候，請勿關閉網頁。');
+
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const memberType = document.getElementById('memberType').value;
+      const referrerName = document.getElementById('referrerName').value.trim();
+      const guestNotes = document.getElementById('guestNotes').value.trim();
+      const bankDate = document.getElementById('bankDate').value.trim();
+      const bankLast5 = document.getElementById('bankLast5').value.trim();
+      const notes = document.getElementById('notes').value.trim();
+
+      // 保險資料欄位
+      const playerDob = document.getElementById('playerDob').value.trim();
+      const playerIdCard = document.getElementById('playerIdCard').value.trim();
+      const playerEmergContact = document.getElementById('playerEmergContact').value.trim();
+      const playerEmergPhone = document.getElementById('playerEmergPhone').value.trim();
+
+      const costData = calculateCost();
+
+      const formData = {
+        name: name,
+        phone: phone,
+        email: email,
+        memberType: memberType,
+        referrerName: referrerName,
+        package: costData.package,
+        packageCost: costData.packageCost,
+        transport: costData.transport,
+        transportCost: costData.transportCost,
+        mealOption: costData.mealOption,
+        mealCost: costData.mealCost,
+        guestNotes: guestNotes,
+        playerDob: playerDob,
+        playerIdCard: playerIdCard,
+        playerEmergContact: playerEmergContact,
+        playerEmergPhone: playerEmergPhone,
+        bankDate: bankDate,
+        bankLast5: bankLast5,
+        notes: notes,
+        totalCost: costData.totalCost
+      };
+
+      // 判斷是否在 Google Apps Script 環境中運行
+      if (typeof google !== 'undefined' && google.script && google.script.run) {
+        if (isEdit) {
+          // 修改模式：呼叫更新
+          google.script.run
+            .withSuccessHandler(function (response) {
+              submitBtn.disabled = false;
+              if (response.status === 'success') {
+                showModal('success', '修改成功！', response.message);
+                cancelEditMode();
+              } else {
+                showModal('error', '修改失敗', response.message);
+              }
+            })
+            .withFailureHandler(function (error) {
+              submitBtn.disabled = false;
+              showModal('error', '連線錯誤', '無法更新資料：' + error.toString());
+            })
+            .updateRegistration(formData, currentEditRowIndex);
+        } else {
+          // 新增模式：呼叫寫入
+          google.script.run
+            .withSuccessHandler(function (response) {
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> 提交報名表單';
+
+              if (response.status === 'success') {
+                showModal('success', '報名成功！', response.message);
+                document.getElementById('golfForm').reset();
+                resetFormStates();
+              } else {
+                showModal('error', '報名失敗', response.message);
+              }
+            })
+            .withFailureHandler(function (error) {
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> 提交報名表單';
+              showModal('error', '連線錯誤', '無法連接後端服務：' + error.toString() + '\n請確保已在 Google 試算表部署成功。');
+            })
+            .submitRegistration(formData);
+        }
+      } else {
+        // 本地網頁測試模擬 (非 GAS 環境)
+        setTimeout(() => {
+          submitBtn.disabled = false;
+
+          if (isEdit) {
+            showModal('success', '【本地修改測試成功】',
+              `🎉 恭喜！資料修改在本地已完成驗證。\n\n` +
+              `👤 球友姓名：${formData.name}（${formData.memberType}${formData.referrerName ? ' / 介紹人：' + formData.referrerName : ''}）\n` +
+              `📞 聯絡電話：${formData.phone}\n` +
+              `✉️ 電子郵件：${formData.email}\n` +
+              `⛳ 參加方案：${formData.package}\n` +
+              `🚌 交通方式：${formData.transport} (NT$ ${formData.transportCost.toLocaleString()})\n` +
+              `🍽️ 用餐選擇：${formData.mealOption} (NT$ ${formData.mealCost.toLocaleString()})\n` +
+              `🛡️ 球友保險：${formData.playerDob || '免填'} / ${formData.playerIdCard || '免填'}\n` +
+              `📅 匯款日期：${formData.bankDate || '未填寫'}\n` +
+              `🏦 匯款後五碼：${formData.bankLast5 || '未填寫'}\n` +
+              `💰 預估最新費用：NT$ ${formData.totalCost.toLocaleString()} 元\n\n` +
+              `💡 部署於 Google Apps Script 後，此修改將直接更新對應列的資料。`
+            );
+            cancelEditMode();
+          } else {
+            submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> 提交報名表單';
+            showModal('success', '【本地模擬測試成功】',
+              `🎉 恭喜！報名資料在本地已完成驗證。\n\n` +
+              `👤 球友姓名：${formData.name}（${formData.memberType}${formData.referrerName ? ' / 介紹人：' + formData.referrerName : ''}）\n` +
+              `📞 聯絡電話：${formData.phone}\n` +
+              `✉️ 電子郵件：${formData.email}\n` +
+              `⛳ 參加方案：${formData.package}\n` +
+              `🚌 交通方式：${formData.transport} (NT$ ${formData.transportCost.toLocaleString()})\n` +
+              `🍽️ 用餐選擇：${formData.mealOption} (NT$ ${formData.mealCost.toLocaleString()})\n` +
+              `🛡️ 球友保險：${formData.playerDob || '免填'} / ${formData.playerIdCard || '免填'}\n` +
+              `📅 匯款日期：${formData.bankDate || '未填寫'}\n` +
+              `🏦 匯款後五碼：${formData.bankLast5 || '未填寫'}\n` +
+              `💰 預估總費用：NT$ ${formData.totalCost.toLocaleString()} 元\n\n` +
+              `💡 部署於 Google Apps Script 後，此資料將自動寫入 Google 試算表。`
+            );
+            document.getElementById('golfForm').reset();
+            resetFormStates();
+          }
+        }, 1500);
+      }
+    }
+
+    // 重設表單所有視覺狀態
+    function resetFormStates() {
+      document.querySelectorAll('.option-card-label').forEach(lbl => lbl.classList.remove('checked'));
+      document.querySelectorAll('.choice-box-label').forEach(lbl => lbl.classList.remove('checked'));
+
+      const defaultPackageInput = document.querySelector('input[name="package"][value="方案 A：2球+1宿+雙人房"]');
+      if (defaultPackageInput) {
+        defaultPackageInput.checked = true;
+        defaultPackageInput.closest('.option-card-label').classList.add('checked');
+      }
+
+      const defaultTransportInput = document.querySelector('input[name="transport"][value="搭乘大車遊覽車"]');
+      if (defaultTransportInput) {
+        defaultTransportInput.checked = true;
+        document.getElementById('transportBusLabel').classList.add('checked');
+      }
+
+      // 重設身份下拉與介紹人欄位
+      const memberTypeSelect = document.getElementById('memberType');
+      if (memberTypeSelect) {
+        memberTypeSelect.value = '';
+        document.getElementById('referrerGroup').style.display = 'none';
+        document.getElementById('referrerName').value = '';
+        document.getElementById('referrerName').removeAttribute('required');
+      }
+
+      document.getElementById('email').value = '';
+      document.getElementById('guestNotes').value = '';
+      document.getElementById('bankDate').value = '';
+      document.getElementById('bankLast5').value = '';
+
+      calculateCost();
+    }
+
+    // Modal 控制
+    function showModal(type, title, message) {
+      const overlay = document.getElementById('modalOverlay');
+      const iconDiv = document.getElementById('modalIcon');
+      const titleDiv = document.getElementById('modalTitle');
+      const bodyDiv = document.getElementById('modalBody');
+      const btn = document.getElementById('modalBtn');
+
+      iconDiv.className = 'modal-icon';
+      btn.style.display = 'inline-block';
+
+      if (type === 'success') {
+        iconDiv.classList.add('success');
+        iconDiv.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+      } else if (type === 'error') {
+        iconDiv.classList.add('error');
+        iconDiv.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i>';
+      } else if (type === 'loading') {
+        iconDiv.classList.add('loading');
+        iconDiv.innerHTML = '<i class="fa-solid fa-circle-notch"></i>';
+        btn.style.display = 'none'; // 載入中不可手動關閉
+      }
+
+      titleDiv.innerText = title;
+      bodyDiv.innerText = message;
+      overlay.classList.add('active');
+    }
+
+    // 當手機版輸入框聚焦時，隱藏底部計費面板，避免遮擋鍵盤輸入畫面
+    const mobileInputs = document.querySelectorAll('input[type="text"], input[type="tel"], input[type="email"], textarea, input[pattern]');
+    mobileInputs.forEach(input => {
+      input.addEventListener('focus', () => {
+        document.body.classList.add('keyboard-open');
+      });
+      input.addEventListener('blur', () => {
+        // 延遲移除，避免在多個輸入框之間快速切換時造成面板閃爍跳動
+        setTimeout(() => {
+          if (
+            document.activeElement.tagName !== 'INPUT' &&
+            document.activeElement.tagName !== 'TEXTAREA'
+          ) {
+            document.body.classList.remove('keyboard-open');
+          }
+        }, 100);
+      });
+    });
+
+    function closeModal() {
+      const overlay = document.getElementById('modalOverlay');
+      overlay.classList.remove('active');
+    }
+  </script>
+</body>
+
+</html>
