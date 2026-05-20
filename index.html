@@ -1059,7 +1059,7 @@
           <tr>
             <td>18:30</td>
             <td>晚餐聚會 🍻</td>
-            <td>紅芭樂特色餐廳（苗栗）</td>
+            <td>福欣園餐廳</td>
           </tr>
           <tr>
             <td>20:30</td>
@@ -1067,7 +1067,7 @@
             <td>苗栗優質飯店</td>
           </tr>
           <tr>
-            <td rowspan="6" style="font-weight: 700; color: var(--primary-color);">6/17 (三)</td>
+            <td rowspan="5" style="font-weight: 700; color: var(--primary-color);">6/17 (三)</td>
             <td>07:00</td>
             <td><b>第二場擊球開球 ⛳</b></td>
             <td>全國花園鄉村俱樂部</td>
@@ -1075,7 +1075,7 @@
           <tr>
             <td>12:00</td>
             <td>球場餐廳午餐 🍛</td>
-            <td>全國球場餐廳</td>
+            <td>紅芭樂私廚</td>
           </tr>
           <tr>
             <td>下午</td>
@@ -1086,11 +1086,6 @@
             <td>下午</td>
             <td>白沙屯拱天宮 ⛩️</td>
             <td>媽祖文化體驗與祈福</td>
-          </tr>
-          <tr>
-            <td>18:00</td>
-            <td>慶功晚宴 🍲</td>
-            <td>廣德海鮮餐廳（桃園楊梅店）</td>
           </tr>
           <tr>
             <td>20:30</td>
@@ -1320,7 +1315,7 @@
               <i class="fa-solid fa-bowl-food choice-box-icon" style="font-size:1.4rem; min-width:36px;"></i>
               <div>
                 <div class="choice-box-title">僅用餐第 1 天 (6/16)</div>
-                <div class="choice-box-desc">6/16 晚餐・紅芭樂特色餐廳 ・NT$ 1,500</div>
+                <div class="choice-box-desc">6/16 晚餐・福欣園餐廳 ・NT$ 1,500</div>
               </div>
             </label>
 
@@ -1330,7 +1325,7 @@
               <i class="fa-solid fa-bowl-food choice-box-icon" style="font-size:1.4rem; min-width:36px;"></i>
               <div>
                 <div class="choice-box-title">僅用餐第 2 天 (6/17)</div>
-                <div class="choice-box-desc">6/17 午餐・球場餐廳 + 晚餐・廣德海鮮 ・NT$ 1,500</div>
+                <div class="choice-box-desc">6/17 午餐・紅芭樂私廚 ・NT$ 1,500</div>
               </div>
             </label>
 
@@ -1340,7 +1335,7 @@
               <i class="fa-solid fa-utensils choice-box-icon" style="font-size:1.4rem; min-width:36px;"></i>
               <div>
                 <div class="choice-box-title">兩天都用餐 (6/16 + 6/17)</div>
-                <div class="choice-box-desc">6/16 晚餐 + 6/17 午餐 + 晚餐 ・NT$ 3,000</div>
+                <div class="choice-box-desc">6/16 晚餐 + 6/17 午餐 ・NT$ 3,000</div>
               </div>
             </label>
 
@@ -1450,9 +1445,9 @@
             <i class="fa-solid fa-bank"></i> 大會專屬匯款對帳帳戶
           </h4>
           <div style="font-size: 0.9rem; color: var(--text-color); line-height: 1.6;">
-            <div><b>銀行名稱</b>：合作金庫銀行 (銀行代碼：006)</div>
-            <div><b>戶名</b>：全國球場高爾夫球大會</div>
-            <div><b>匯款帳號</b>：0060-123-456789</div>
+            <div><b>銀行名稱</b>：台北富邦銀行 (銀行代碼：012) 南港分行</div>
+            <div><b>戶名</b>：石瑞媛</div>
+            <div><b>匯款帳號</b>：420210288952</div>
             <div
               style="font-size: 0.8rem; color: #558b2f; font-weight: 700; margin-top: 8px; display: flex; align-items: center; gap: 4px;">
               <i class="fa-solid fa-circle-exclamation"></i>
@@ -1696,7 +1691,7 @@
           } else if (action === 'submitRegistration') {
             const transferAmt = (payload.transportCost || 0) + (payload.mealCost || 0);
             const transferLine = transferAmt > 0
-              ? `您須匯款金額為 NT$ ${transferAmt.toLocaleString()} 元，\n匯款帳號：0060-123-456789（合作金庫），\n\n麻煩匯款後請再回到報名網頁作修改，回報後 5 碼即可。`
+              ? `您須匯款金額為 NT$ ${transferAmt.toLocaleString()} 元，\n匯款帳號：420210288952（台北富邦銀行 012 南港分行，戶名：石瑞媛），\n\n麻煩匯款後請再回到報名網頁作修改，回報後 5 碼即可。`
               : `您本次無需匯款（方案費用將於當天現場自付）。`;
             successCallback({
               status: 'success',
