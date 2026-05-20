@@ -356,6 +356,7 @@
       color: var(--text-light);
       font-size: 1.1rem;
       transition: var(--transition);
+      pointer-events: none; /* 防止圖標攔截點擊事件，使點擊穿透至下方的 input/select */
     }
 
     .form-control {
@@ -1107,12 +1108,13 @@
           <div style="display: flex; gap: 12px; align-items: flex-start; flex-wrap: wrap;">
             <div class="input-wrapper" style="flex: 1; min-width: 180px;">
               <select id="memberType" name="memberType" class="form-control" required
-                style="padding-left: 42px; appearance: none; cursor: pointer;" onchange="toggleReferrer(this)">
+                style="padding-left: 42px; padding-right: 35px; -webkit-appearance: none; appearance: none; cursor: pointer;" onchange="toggleReferrer(this)">
                 <option value="" disabled selected>請選擇身份</option>
                 <option value="世華群英隊隊友">世華群英隊隊友</option>
                 <option value="來賓">來賓</option>
               </select>
               <i class="fa-solid fa-users"></i>
+              <i class="fa-solid fa-chevron-down" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); pointer-events: none; color: var(--text-light); font-size: 0.85rem;"></i>
             </div>
             <div id="referrerGroup" class="input-wrapper" style="flex: 1; min-width: 180px; display: none;">
               <input type="text" id="referrerName" name="referrerName" class="form-control" placeholder="介紹人姓名">
