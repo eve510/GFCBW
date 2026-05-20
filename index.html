@@ -1123,22 +1123,29 @@
 
         <!-- 球友身份 -->
         <div class="form-group">
-          <label class="field-label" for="memberType">球友身份 <span class="required">*</span></label>
-          <div style="display: flex; gap: 12px; align-items: flex-start; flex-wrap: wrap;">
-            <div class="input-wrapper" style="flex: 1; min-width: 180px;">
-              <select id="memberType" name="memberType" class="form-control" required
-                style="padding-left: 42px; cursor: pointer;" onchange="toggleReferrer(this)">
-                <option value="" disabled selected>請選擇身份</option>
-                <option value="世華群英隊隊友">世華群英隊隊友</option>
-                <option value="來賓">來賓</option>
-              </select>
-              <i class="fa-solid fa-users"></i>
-              <i class="fa-solid fa-chevron-down" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); pointer-events: none; color: var(--text-light); font-size: 0.85rem;"></i>
-            </div>
-            <div id="referrerGroup" class="input-wrapper" style="flex: 1; min-width: 180px; display: none;">
-              <input type="text" id="referrerName" name="referrerName" class="form-control" placeholder="介紹人姓名">
-              <i class="fa-solid fa-user-tie"></i>
-            </div>
+          <label class="field-label">球友身份 <span class="required">*</span></label>
+          <div class="choice-group-row" style="grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 12px;">
+
+            <label class="choice-box-label" id="memberTypeTeamLabel" onclick="selectMemberType(this)">
+              <input type="radio" name="memberType" value="世華群英隊隊友" required>
+              <i class="fa-solid fa-users choice-box-icon"></i>
+              <div class="choice-box-title">世華群英隊隊友</div>
+              <div class="choice-box-desc">享大會餐費補助</div>
+            </label>
+
+            <label class="choice-box-label" id="memberTypeGuestLabel" onclick="selectMemberType(this)">
+              <input type="radio" name="memberType" value="來賓">
+              <i class="fa-solid fa-user-tie choice-box-icon"></i>
+              <div class="choice-box-title">來賓</div>
+              <div class="choice-box-desc">餐費自付，須填介紹人</div>
+            </label>
+
+          </div>
+
+          <!-- 介紹人姓名 (若為來賓則顯示) -->
+          <div id="referrerGroup" class="input-wrapper" style="display: none; margin-top: 12px;">
+            <input type="text" id="referrerName" name="referrerName" class="form-control" placeholder="介紹人姓名 (世華群英隊隊友)">
+            <i class="fa-solid fa-user-tag"></i>
           </div>
         </div>
 
@@ -1748,10 +1755,10 @@
     }
 
     // 切換介紹人欄位顯示
-    function toggleReferrer(selectEl) {
+    function toggleReferrer(val) {
       const referrerGroup = document.getElementById('referrerGroup');
       const referrerInput = document.getElementById('referrerName');
-      if (selectEl.value === '來賓') {
+      if (val === '來賓') {
         referrerGroup.style.display = 'flex';
         referrerInput.setAttribute('required', 'true');
       } else {
@@ -1761,6 +1768,19 @@
       }
       // 身份改變時立即重新試算 (影響餐費)
       calculateCost();
+    }
+
+    // 球友身份單選選擇器 (卡片式單選)
+    function selectMemberType(labelElement) {
+      const siblingLabels = labelElement.parentNode.querySelectorAll('.choice-box-label');
+      siblingLabels.forEach(lbl => lbl.classList.remove('checked'));
+      labelElement.classList.add('checked');
+
+      const radio = labelElement.querySelector('input[type="radio"]');
+      radio.checked = true;
+
+      // 切換介紹人欄位顯示
+      toggleReferrer(radio.value);
     }
 
     // 用餐選項單選
@@ -1802,7 +1822,7 @@
 
       // 3. 抓用餐選項費用 (單選)；隊友免費，來賓才收費
       const selectedMeal = document.querySelector('input[name="mealOption"]:checked');
-      const memberType = document.getElementById('memberType')?.value || '';
+      const memberType = document.querySelector('input[name="memberType"]:checked')?.value || '';
       const isGuest = memberType === '來賓';
 
       if (selectedMeal) {
@@ -1944,11 +1964,16 @@
       document.getElementById('phone').value = data.phone;
       document.getElementById('email').value = data.email;
 
-      // 填充球友身份
-      const memberTypeSelect = document.getElementById('memberType');
-      if (memberTypeSelect && data.memberType) {
-        memberTypeSelect.value = data.memberType;
-        toggleReferrer(memberTypeSelect);
+      // 填充球友身份 (Radio Group)
+      const memberTypeRadio = document.querySelector(`input[name="memberType"][value="${data.memberType}"]`);
+      if (memberTypeRadio) {
+        memberTypeRadio.checked = true;
+        document.querySelectorAll('input[name="memberType"]').forEach(radio => {
+          radio.closest('.choice-box-label').classList.remove('checked');
+        });
+        memberTypeRadio.closest('.choice-box-label').classList.add('checked');
+        
+        toggleReferrer(data.memberType);
         if (data.referrerName) {
           document.getElementById('referrerName').value = data.referrerName;
         }
@@ -2041,7 +2066,7 @@
       document.getElementById('phone').value = phone;
 
       const email = document.getElementById('email').value.trim();
-      const memberType = document.getElementById('memberType').value;
+      const memberType = document.querySelector('input[name="memberType"]:checked')?.value || '';
       const referrerName = document.getElementById('referrerName').value.trim();
       const guestNotes = document.getElementById('guestNotes').value.trim();
       const bankDate = document.getElementById('bankDate').value.trim();
@@ -2141,14 +2166,15 @@
         document.getElementById('transportBusLabel').classList.add('checked');
       }
 
-      // 重設身份下拉與介紹人欄位
-      const memberTypeSelect = document.getElementById('memberType');
-      if (memberTypeSelect) {
-        memberTypeSelect.value = '';
-        document.getElementById('referrerGroup').style.display = 'none';
-        document.getElementById('referrerName').value = '';
-        document.getElementById('referrerName').removeAttribute('required');
-      }
+      // 重設身份選擇與介紹人欄位
+      document.querySelectorAll('input[name="memberType"]').forEach(radio => {
+        radio.checked = false;
+        const parentLabel = radio.closest('.choice-box-label');
+        if (parentLabel) parentLabel.classList.remove('checked');
+      });
+      document.getElementById('referrerGroup').style.display = 'none';
+      document.getElementById('referrerName').value = '';
+      document.getElementById('referrerName').removeAttribute('required');
 
       document.getElementById('email').value = '';
       document.getElementById('guestNotes').value = '';
