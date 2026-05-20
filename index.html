@@ -371,6 +371,25 @@
       outline: none;
     }
 
+    /* select 下拉選單專用自訂外觀 (預設適用於 iOS 與桌面瀏覽器) */
+    select.form-control {
+      -webkit-appearance: none !important;
+      appearance: none !important;
+      padding-right: 35px !important;
+    }
+
+    /* Android 系統的 LINE/內部 WebView 相容性覆蓋：強制還原系統原生下拉箭頭以確保 Click 觸發 Picker */
+    body.is-android select.form-control {
+      -webkit-appearance: menulist !important;
+      appearance: menulist !important;
+      padding-right: 12px !important;
+    }
+
+    /* Android 系統下隱藏自訂的右側箭頭，避免呈現雙箭頭 */
+    body.is-android .input-wrapper .fa-chevron-down {
+      display: none !important;
+    }
+
     .form-control:focus {
       border-color: var(--primary-color);
       background-color: #ffffff;
@@ -1108,7 +1127,7 @@
           <div style="display: flex; gap: 12px; align-items: flex-start; flex-wrap: wrap;">
             <div class="input-wrapper" style="flex: 1; min-width: 180px;">
               <select id="memberType" name="memberType" class="form-control" required
-                style="padding-left: 42px; padding-right: 35px; -webkit-appearance: none; appearance: none; cursor: pointer;" onchange="toggleReferrer(this)">
+                style="padding-left: 42px; cursor: pointer;" onchange="toggleReferrer(this)">
                 <option value="" disabled selected>請選擇身份</option>
                 <option value="世華群英隊隊友">世華群英隊隊友</option>
                 <option value="來賓">來賓</option>
@@ -1553,6 +1572,11 @@
 
   <!-- JavaScript 控制邏輯 -->
   <script>
+    // 檢測是否為 Android 系統以解決 Android LINE WebView 點擊 select 失效問題
+    if (/Android/i.test(navigator.userAgent)) {
+      document.body.classList.add('is-android');
+    }
+
     // =================================================================
     // 🌐 GitHub Pages 模式配置 (若要放在 GitHub，請填寫您的 GAS 部署網址)
     // =================================================================
