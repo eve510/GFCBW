@@ -923,10 +923,13 @@
       background: #c62828;
     }
 
-    /* 手機版鍵盤彈起時，隱藏浮動的費用計算面板以防遮擋輸入畫面 */
+    /* 在手機版中，將計算面板改為隨頁面滾動的靜態排版，完全避免遮擋輸入框，也不會消失 */
     @media (max-width: 768px) {
-      body.keyboard-open .cost-preview-panel {
-        display: none !important;
+      .cost-preview-panel {
+        position: relative !important;
+        bottom: auto !important;
+        margin-top: 24px !important;
+        box-shadow: var(--shadow-md) !important;
       }
     }
   </style>
@@ -1001,8 +1004,6 @@
       <ul>
         <li><b>費用說明</b>：擊球與住宿費用為個人自付項目，將依所選方案現場收取。</li>
         <li><b>交通安排</b>：搭乘大會豪華遊覽車（三排椅新車）者，每人分攤 1,000 元車資。</li>
-        <li><b>眷屬餐費</b>：歡迎隨行來賓眷屬共襄盛舉，來賓餐費兩天共 3,000 元（不打球不佔床）。</li>
-        <li><b>司機吃住</b>：司機之吃住事宜，將由大會協助妥善安排。</li>
       </ul>
     </div>
 
@@ -1106,8 +1107,7 @@
           <div style="display: flex; gap: 12px; align-items: flex-start; flex-wrap: wrap;">
             <div class="input-wrapper" style="flex: 1; min-width: 180px;">
               <select id="memberType" name="memberType" class="form-control" required
-                style="padding-left: 42px; appearance: none; cursor: pointer;"
-                onchange="toggleReferrer(this)">
+                style="padding-left: 42px; appearance: none; cursor: pointer;" onchange="toggleReferrer(this)">
                 <option value="" disabled selected>請選擇身份</option>
                 <option value="世華群英隊隊友">世華群英隊隊友</option>
                 <option value="來賓">來賓</option>
@@ -1115,8 +1115,7 @@
               <i class="fa-solid fa-users"></i>
             </div>
             <div id="referrerGroup" class="input-wrapper" style="flex: 1; min-width: 180px; display: none;">
-              <input type="text" id="referrerName" name="referrerName" class="form-control"
-                placeholder="介紹人姓名">
+              <input type="text" id="referrerName" name="referrerName" class="form-control" placeholder="介紹人姓名">
               <i class="fa-solid fa-user-tie"></i>
             </div>
           </div>
@@ -1287,7 +1286,8 @@
           <label class="field-label">請選擇用餐場次 <span class="required">*</span></label>
           <div class="choice-group-row" style="grid-template-columns: repeat(1, 1fr); gap: 10px;">
 
-            <label class="choice-box-label" id="mealDay1Label" onclick="selectMeal(this)" style="flex-direction: row; align-items: center; gap: 14px; padding: 14px 18px;">
+            <label class="choice-box-label" id="mealDay1Label" onclick="selectMeal(this)"
+              style="flex-direction: row; align-items: center; gap: 14px; padding: 14px 18px;">
               <input type="radio" name="mealOption" value="僅用餐第1天(6/16)" data-meal-cost="1500" required>
               <i class="fa-solid fa-bowl-food choice-box-icon" style="font-size:1.4rem; min-width:36px;"></i>
               <div>
@@ -1296,7 +1296,8 @@
               </div>
             </label>
 
-            <label class="choice-box-label" id="mealDay2Label" onclick="selectMeal(this)" style="flex-direction: row; align-items: center; gap: 14px; padding: 14px 18px;">
+            <label class="choice-box-label" id="mealDay2Label" onclick="selectMeal(this)"
+              style="flex-direction: row; align-items: center; gap: 14px; padding: 14px 18px;">
               <input type="radio" name="mealOption" value="僅用餐第2天(6/17)" data-meal-cost="1500">
               <i class="fa-solid fa-bowl-food choice-box-icon" style="font-size:1.4rem; min-width:36px;"></i>
               <div>
@@ -1305,7 +1306,8 @@
               </div>
             </label>
 
-            <label class="choice-box-label" id="mealBothLabel" onclick="selectMeal(this)" style="flex-direction: row; align-items: center; gap: 14px; padding: 14px 18px;">
+            <label class="choice-box-label" id="mealBothLabel" onclick="selectMeal(this)"
+              style="flex-direction: row; align-items: center; gap: 14px; padding: 14px 18px;">
               <input type="radio" name="mealOption" value="兩天都用餐(6/16+6/17)" data-meal-cost="3000">
               <i class="fa-solid fa-utensils choice-box-icon" style="font-size:1.4rem; min-width:36px;"></i>
               <div>
@@ -1314,7 +1316,8 @@
               </div>
             </label>
 
-            <label class="choice-box-label" id="mealNoneLabel" onclick="selectMeal(this)" style="flex-direction: row; align-items: center; gap: 14px; padding: 14px 18px;">
+            <label class="choice-box-label" id="mealNoneLabel" onclick="selectMeal(this)"
+              style="flex-direction: row; align-items: center; gap: 14px; padding: 14px 18px;">
               <input type="radio" name="mealOption" value="不用餐" data-meal-cost="0">
               <i class="fa-solid fa-ban choice-box-icon" style="font-size:1.4rem; min-width:36px; color: #9e9e9e;"></i>
               <div>
@@ -1343,8 +1346,10 @@
         </div>
 
         <!-- 自行前往提示區塊 -->
-        <div id="insuranceSelfBanner" style="background: #e8f5e9; border: 1px solid #c8e6c9; border-radius: var(--border-radius-sm); padding: 20px; display: none;">
-          <div style="font-size: 0.95rem; color: var(--primary-color); display: flex; align-items: center; gap: 8px; font-weight: 700;">
+        <div id="insuranceSelfBanner"
+          style="background: #e8f5e9; border: 1px solid #c8e6c9; border-radius: var(--border-radius-sm); padding: 20px; display: none;">
+          <div
+            style="font-size: 0.95rem; color: var(--primary-color); display: flex; align-items: center; gap: 8px; font-weight: 700;">
             <i class="fa-solid fa-circle-info" style="font-size: 1.2rem;"></i>
             <span>您已選擇「自行前往」，本步驟免填寫保險資料。</span>
           </div>
@@ -1359,10 +1364,11 @@
 
           <!-- 球友本人保險資料 -->
           <div id="playerInsuranceSection" style="margin-top: 10px;">
-            <h4 style="color: var(--primary-color); font-size: 0.95rem; font-weight: 800; border-left: 4px solid var(--primary-color); padding-left: 8px; margin-bottom: 15px;">
+            <h4
+              style="color: var(--primary-color); font-size: 0.95rem; font-weight: 800; border-left: 4px solid var(--primary-color); padding-left: 8px; margin-bottom: 15px;">
               👤 球友本人保險資料
             </h4>
-            
+
             <div class="form-group">
               <label class="field-label" for="playerDob">出生年月日 <span class="required">*</span></label>
               <div class="input-wrapper">
@@ -1374,7 +1380,8 @@
             <div class="form-group">
               <label class="field-label" for="playerIdCard">身分證字號 <span class="required">*</span></label>
               <div class="input-wrapper">
-                <input type="text" id="playerIdCard" name="playerIdCard" class="form-control" placeholder="如：A123456789" pattern="^[a-zA-Z][1-2]\d{8}$" oninput="this.value = this.value.toUpperCase()">
+                <input type="text" id="playerIdCard" name="playerIdCard" class="form-control" placeholder="如：A123456789"
+                  pattern="^[a-zA-Z][1-2]\d{8}$" oninput="this.value = this.value.toUpperCase()">
                 <i class="fa-solid fa-id-card"></i>
               </div>
             </div>
@@ -1382,7 +1389,8 @@
             <div class="form-group">
               <label class="field-label" for="playerEmergContact">緊急聯絡人 <span class="required">*</span></label>
               <div class="input-wrapper">
-                <input type="text" id="playerEmergContact" name="playerEmergContact" class="form-control" placeholder="請輸入聯絡人姓名">
+                <input type="text" id="playerEmergContact" name="playerEmergContact" class="form-control"
+                  placeholder="請輸入聯絡人姓名">
                 <i class="fa-solid fa-user-shield"></i>
               </div>
             </div>
@@ -1390,7 +1398,8 @@
             <div class="form-group">
               <label class="field-label" for="playerEmergPhone">緊急聯絡電話 <span class="required">*</span></label>
               <div class="input-wrapper">
-                <input type="tel" id="playerEmergPhone" name="playerEmergPhone" class="form-control" placeholder="請輸入聯絡電話">
+                <input type="tel" id="playerEmergPhone" name="playerEmergPhone" class="form-control"
+                  placeholder="請輸入聯絡電話">
                 <i class="fa-solid fa-phone-flip"></i>
               </div>
             </div>
@@ -1463,7 +1472,9 @@
         </div>
 
         <!-- 當天自付區塊 -->
-        <div style="font-size: 0.75rem; font-weight: 700; color: #fffb77; letter-spacing: 0.5px; margin-bottom: 4px; opacity: 0.85;">💳 個人當天自付</div>
+        <div
+          style="font-size: 0.75rem; font-weight: 700; color: #fffb77; letter-spacing: 0.5px; margin-bottom: 4px; opacity: 0.85;">
+          💳 個人當天自付</div>
         <div class="cost-breakdown-row">
           <span>擊球與住宿方案費用：</span>
           <span id="previewPackageCost">NT$ 0</span>
@@ -1472,7 +1483,9 @@
         <div class="cost-divider" style="margin: 8px 0;"></div>
 
         <!-- 須先匯款區塊 -->
-        <div style="font-size: 0.75rem; font-weight: 700; color: #ffcc80; letter-spacing: 0.5px; margin-bottom: 4px; opacity: 0.85;">🏦 請先匯款</div>
+        <div
+          style="font-size: 0.75rem; font-weight: 700; color: #ffcc80; letter-spacing: 0.5px; margin-bottom: 4px; opacity: 0.85;">
+          🏦 請先匯款</div>
         <div class="cost-breakdown-row">
           <span>大車交通車資費用：</span>
           <span id="previewTransportCost">NT$ 0</span>
@@ -1538,6 +1551,135 @@
 
   <!-- JavaScript 控制邏輯 -->
   <script>
+    // =================================================================
+    // 🌐 GitHub Pages 模式配置 (若要放在 GitHub，請填寫您的 GAS 部署網址)
+    // =================================================================
+    // 步驟 1. 在 Google Apps Script 點擊「部署」 -> 「新增部署」 -> 選擇「網頁應用程式」
+    // 步驟 2. 設定「將應用程式執行為：我」，「誰有權存取：任何人」
+    // 步驟 3. 複製部署後的「網網應用程式 URL」並填寫在下方 (請保留單引號)
+    const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycby6CybSMsWAhs_y4x8KTO4ssxXp0FSTzMnX8dAb_QwgmtvWNxdqdqNF8jAPHTFozBhS/exec"; 
+
+    // 清理與標準化台灣電話格式 (例如：將 +886933123456 或 886933123456 轉回 0933123456)
+    function cleanTaiwanPhone(phoneStr) {
+      if (!phoneStr) return '';
+      let cleaned = phoneStr.trim().replace(/[-\s]/g, ''); // 去除空白與減號
+      if (cleaned.startsWith('+886')) {
+        cleaned = '0' + cleaned.slice(4);
+      } else if (cleaned.startsWith('886')) {
+        cleaned = '0' + cleaned.slice(3);
+      }
+      return cleaned;
+    }
+
+    // 統一呼叫後端 API 的封裝函式 (支援 GitHub Pages 跨網域 fetch、GAS 環境內嵌、以及本地模擬調試)
+    function callBackend(action, payload, successCallback, failureCallback) {
+      // 1. 如果填寫了 GitHub Pages 專用的 GAS API 網址，就使用 fetch (跨網域 POST)
+      if (GAS_WEB_APP_URL) {
+        const bodyData = {
+          action: action
+        };
+        if (action === 'submitRegistration') {
+          bodyData.data = payload;
+        } else if (action === 'getRegistrationByPhone') {
+          bodyData.phone = payload;
+        } else if (action === 'updateRegistration') {
+          bodyData.data = payload.data;
+          bodyData.rowIndex = payload.rowIndex;
+        }
+
+        fetch(GAS_WEB_APP_URL, {
+          method: 'POST',
+          mode: 'cors',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8' // 避免 CORS 複雜 preflight
+          },
+          body: JSON.stringify(bodyData)
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('網路回應異常：' + response.statusText);
+          }
+          return response.json();
+        })
+        .then(data => {
+          successCallback(data);
+        })
+        .catch(error => {
+          if (failureCallback) {
+            failureCallback(error);
+          } else {
+            console.error('API 錯誤：', error);
+            alert('連線失敗，請檢查您的 GAS 部署網址是否正確。錯誤原因：' + error.message);
+          }
+        });
+      } 
+      // 2. 如果是在 GAS 環境內 (嵌入於 Google 試算表網頁中) 且未設定 GAS_WEB_APP_URL
+      else if (typeof google !== 'undefined' && google.script && google.script.run) {
+        if (action === 'submitRegistration') {
+          google.script.run
+            .withSuccessHandler(successCallback)
+            .withFailureHandler(failureCallback)
+            .submitRegistration(payload);
+        } else if (action === 'getRegistrationByPhone') {
+          google.script.run
+            .withSuccessHandler(successCallback)
+            .withFailureHandler(failureCallback)
+            .getRegistrationByPhone(payload);
+        } else if (action === 'updateRegistration') {
+          google.script.run
+            .withSuccessHandler(successCallback)
+            .withFailureHandler(failureCallback)
+            .updateRegistration(payload.data, payload.rowIndex);
+        }
+      } 
+      // 3. 本地模擬測試模式 (供本機直接雙擊開啟 index.html 測試用)
+      else {
+        console.log(`[本地模擬] 執行動作 ${action}`, payload);
+        setTimeout(() => {
+          if (action === 'getRegistrationByPhone') {
+            successCallback({
+              status: 'found',
+              rowIndex: 5,
+              name: "測試林",
+              phone: payload,
+              email: "test@gmail.com",
+              memberType: "世華群英隊隊友",
+              referrerName: "",
+              package: "方案 G：打球+住宿(自行處理)",
+              packageCost: 0,
+              transport: "搭乘大車遊覽車",
+              transportCost: 1000,
+              mealOption: "兩天都用餐(6/16+6/17)",
+              mealCost: 3000,
+              guestNotes: "",
+              playerDob: "1980-01-01",
+              playerIdCard: "A123456789",
+              playerEmergContact: "緊急球友",
+              playerEmergPhone: "0922333444",
+              bankDate: "2026-06-01",
+              bankLast5: "54321",
+              notes: "測試修改"
+            });
+          } else if (action === 'submitRegistration') {
+            const transferAmt = (payload.transportCost || 0) + (payload.mealCost || 0);
+            const transferLine = transferAmt > 0
+              ? `您須匯款金額為 NT$ ${transferAmt.toLocaleString()} 元，\n匯款帳號：0060-123-456789（合作金庫），\n\n麻煩匯款後請再回到報名網頁作修改，回報後 5 碼即可。`
+              : `您本次無需匯款（方案費用將於當天現場自付）。`;
+            successCallback({
+              status: 'success',
+              message: '【本地模擬成功】報名成功！您的資料已登錄完成。\n\n' + transferLine
+            });
+          } else if (action === 'updateRegistration') {
+            const transferAmt = (payload.data.transportCost || 0) + (payload.data.mealCost || 0);
+            successCallback({
+              status: 'success',
+              message: '【本地模擬成功】資料已成功更新儲存！\n須匯款金額：NT$ ' + transferAmt.toLocaleString() + ' 元。'
+            });
+          }
+        }, 1200);
+      }
+    }
+
     // 行程表收折控制
     const itineraryToggle = document.getElementById('itineraryToggle');
     const itineraryContent = document.getElementById('itineraryContent');
@@ -1729,67 +1871,37 @@
     }
 
     function searchRegistration() {
-      const phoneInput = document.getElementById('queryPhone').value.trim();
+      const rawPhone = document.getElementById('queryPhone').value.trim();
+      const phoneInput = cleanTaiwanPhone(rawPhone);
       if (!phoneInput) {
         alert('請輸入電話號碼！');
         return;
       }
+      // 將清理後的電話回寫輸入框
+      document.getElementById('queryPhone').value = phoneInput;
 
       const searchBtn = document.getElementById('querySearchBtn');
       searchBtn.disabled = true;
       searchBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 查詢中...';
 
-      if (typeof google !== 'undefined' && google.script && google.script.run) {
-        google.script.run
-          .withSuccessHandler(function (response) {
-            searchBtn.disabled = false;
-            searchBtn.innerText = '確認查詢';
-
-            if (response && response.status === 'found') {
-              closeQueryModal();
-              enterEditMode(response);
-            } else {
-              alert('查無報名紀錄，請確認電話號碼是否與報名時一致。\n(格式支援 0912345678 或 0912-345678)');
-            }
-          })
-          .withFailureHandler(function (error) {
-            searchBtn.disabled = false;
-            searchBtn.innerText = '確認查詢';
-            alert('查詢出錯，請確保已上傳 GAS 後端伺服器：' + error.toString());
-          })
-          .getRegistrationByPhone(phoneInput);
-      } else {
-        setTimeout(() => {
+      callBackend('getRegistrationByPhone', phoneInput,
+        function (response) {
           searchBtn.disabled = false;
           searchBtn.innerText = '確認查詢';
 
-          closeQueryModal();
-          // 模擬回傳一筆測試資料
-          const mockResponse = {
-            rowIndex: 5,
-            name: "測試林",
-            phone: phoneInput,
-            email: "test@gmail.com",
-            memberType: "世華群英隊隊友",
-            referrerName: "",
-            package: "方案 G：打球+住宿(自行處理)",
-            packageCost: 0,
-            transport: "搭乘大車遊覽車",
-            transportCost: 1000,
-            mealOption: "兩天都用餐(6/16+6/17)",
-            mealCost: 3000,
-            guestNotes: "",
-            playerDob: "1980-01-01",
-            playerIdCard: "A123456789",
-            playerEmergContact: "緊急球友",
-            playerEmergPhone: "0922333444",
-            bankDate: "2026-06-01",
-            bankLast5: "54321",
-            notes: "測試修改"
-          };
-          enterEditMode(mockResponse);
-        }, 1000);
-      }
+          if (response && response.status === 'found') {
+            closeQueryModal();
+            enterEditMode(response);
+          } else {
+            alert('查無報名紀錄，請確認電話號碼是否與報名時一致。\n(已自動優化格式比對)');
+          }
+        },
+        function (error) {
+          searchBtn.disabled = false;
+          searchBtn.innerText = '確認查詢';
+          alert('查詢出錯：' + error.toString());
+        }
+      );
     }
 
     // 進入修改模式
@@ -1896,7 +2008,12 @@
       showModal('loading', loadingTitle, '系統正在寫入 Google 試算表，請稍候，請勿關閉網頁。');
 
       const name = document.getElementById('name').value.trim();
-      const phone = document.getElementById('phone').value.trim();
+      
+      // 使用 cleanTaiwanPhone 清理聯絡電話，並回寫輸入框
+      const rawPhone = document.getElementById('phone').value.trim();
+      const phone = cleanTaiwanPhone(rawPhone);
+      document.getElementById('phone').value = phone;
+
       const email = document.getElementById('email').value.trim();
       const memberType = document.getElementById('memberType').value;
       const referrerName = document.getElementById('referrerName').value.trim();
@@ -1909,7 +2026,11 @@
       const playerDob = document.getElementById('playerDob').value.trim();
       const playerIdCard = document.getElementById('playerIdCard').value.trim();
       const playerEmergContact = document.getElementById('playerEmergContact').value.trim();
-      const playerEmergPhone = document.getElementById('playerEmergPhone').value.trim();
+      
+      // 使用 cleanTaiwanPhone 清理緊急聯絡電話，並回寫輸入框
+      const rawEmergPhone = document.getElementById('playerEmergPhone').value.trim();
+      const playerEmergPhone = cleanTaiwanPhone(rawEmergPhone);
+      document.getElementById('playerEmergPhone').value = playerEmergPhone;
 
       const costData = calculateCost();
 
@@ -1936,88 +2057,44 @@
         totalCost: costData.totalCost
       };
 
-      // 判斷是否在 Google Apps Script 環境中運行
-      if (typeof google !== 'undefined' && google.script && google.script.run) {
-        if (isEdit) {
-          // 修改模式：呼叫更新
-          google.script.run
-            .withSuccessHandler(function (response) {
-              submitBtn.disabled = false;
-              if (response.status === 'success') {
-                showModal('success', '修改成功！', response.message);
-                cancelEditMode();
-              } else {
-                showModal('error', '修改失敗', response.message);
-              }
-            })
-            .withFailureHandler(function (error) {
-              submitBtn.disabled = false;
-              showModal('error', '連線錯誤', '無法更新資料：' + error.toString());
-            })
-            .updateRegistration(formData, currentEditRowIndex);
-        } else {
-          // 新增模式：呼叫寫入
-          google.script.run
-            .withSuccessHandler(function (response) {
-              submitBtn.disabled = false;
-              submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> 提交報名表單';
-
-              if (response.status === 'success') {
-                showModal('success', '報名成功！', response.message);
-                document.getElementById('golfForm').reset();
-                resetFormStates();
-              } else {
-                showModal('error', '報名失敗', response.message);
-              }
-            })
-            .withFailureHandler(function (error) {
-              submitBtn.disabled = false;
-              submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> 提交報名表單';
-              showModal('error', '連線錯誤', '無法連接後端服務：' + error.toString() + '\n請確保已在 Google 試算表部署成功。');
-            })
-            .submitRegistration(formData);
-        }
-      } else {
-        // 本地網頁測試模擬 (非 GAS 環境)
-        setTimeout(() => {
-          submitBtn.disabled = false;
-
-          if (isEdit) {
-            showModal('success', '【本地修改測試成功】',
-              `🎉 恭喜！資料修改在本地已完成驗證。\n\n` +
-              `👤 球友姓名：${formData.name}（${formData.memberType}${formData.referrerName ? ' / 介紹人：' + formData.referrerName : ''}）\n` +
-              `📞 聯絡電話：${formData.phone}\n` +
-              `✉️ 電子郵件：${formData.email}\n` +
-              `⛳ 參加方案：${formData.package}\n` +
-              `🚌 交通方式：${formData.transport} (NT$ ${formData.transportCost.toLocaleString()})\n` +
-              `🍽️ 用餐選擇：${formData.mealOption} (NT$ ${formData.mealCost.toLocaleString()})\n` +
-              `🛡️ 球友保險：${formData.playerDob || '免填'} / ${formData.playerIdCard || '免填'}\n` +
-              `📅 匯款日期：${formData.bankDate || '未填寫'}\n` +
-              `🏦 匯款後五碼：${formData.bankLast5 || '未填寫'}\n` +
-              `💰 預估最新費用：NT$ ${formData.totalCost.toLocaleString()} 元\n\n` +
-              `💡 部署於 Google Apps Script 後，此修改將直接更新對應列的資料。`
-            );
-            cancelEditMode();
-          } else {
-            submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> 提交報名表單';
-            showModal('success', '【本地模擬測試成功】',
-              `🎉 恭喜！報名資料在本地已完成驗證。\n\n` +
-              `👤 球友姓名：${formData.name}（${formData.memberType}${formData.referrerName ? ' / 介紹人：' + formData.referrerName : ''}）\n` +
-              `📞 聯絡電話：${formData.phone}\n` +
-              `✉️ 電子郵件：${formData.email}\n` +
-              `⛳ 參加方案：${formData.package}\n` +
-              `🚌 交通方式：${formData.transport} (NT$ ${formData.transportCost.toLocaleString()})\n` +
-              `🍽️ 用餐選擇：${formData.mealOption} (NT$ ${formData.mealCost.toLocaleString()})\n` +
-              `🛡️ 球友保險：${formData.playerDob || '免填'} / ${formData.playerIdCard || '免填'}\n` +
-              `📅 匯款日期：${formData.bankDate || '未填寫'}\n` +
-              `🏦 匯款後五碼：${formData.bankLast5 || '未填寫'}\n` +
-              `💰 預估總費用：NT$ ${formData.totalCost.toLocaleString()} 元\n\n` +
-              `💡 部署於 Google Apps Script 後，此資料將自動寫入 Google 試算表。`
-            );
-            document.getElementById('golfForm').reset();
-            resetFormStates();
+      if (isEdit) {
+        // 修改模式：呼叫更新
+        callBackend('updateRegistration', { data: formData, rowIndex: currentEditRowIndex },
+          function (response) {
+            submitBtn.disabled = false;
+            if (response.status === 'success') {
+              showModal('success', '修改成功！', response.message);
+              cancelEditMode();
+            } else {
+              showModal('error', '修改失敗', response.message);
+            }
+          },
+          function (error) {
+            submitBtn.disabled = false;
+            showModal('error', '連線錯誤', '無法更新資料：' + error.toString());
           }
-        }, 1500);
+        );
+      } else {
+        // 新增模式：呼叫寫入
+        callBackend('submitRegistration', formData,
+          function (response) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> 提交報名表單';
+
+            if (response.status === 'success') {
+              showModal('success', '報名成功！', response.message);
+              document.getElementById('golfForm').reset();
+              resetFormStates();
+            } else {
+              showModal('error', '報名失敗', response.message);
+            }
+          },
+          function (error) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> 提交報名表單';
+            showModal('error', '連線錯誤', '無法連接後端服務：' + error.toString());
+          }
+        );
       }
     }
 
@@ -2083,24 +2160,7 @@
       overlay.classList.add('active');
     }
 
-    // 當手機版輸入框聚焦時，隱藏底部計費面板，避免遮擋鍵盤輸入畫面
-    const mobileInputs = document.querySelectorAll('input[type="text"], input[type="tel"], input[type="email"], textarea, input[pattern]');
-    mobileInputs.forEach(input => {
-      input.addEventListener('focus', () => {
-        document.body.classList.add('keyboard-open');
-      });
-      input.addEventListener('blur', () => {
-        // 延遲移除，避免在多個輸入框之間快速切換時造成面板閃爍跳動
-        setTimeout(() => {
-          if (
-            document.activeElement.tagName !== 'INPUT' &&
-            document.activeElement.tagName !== 'TEXTAREA'
-          ) {
-            document.body.classList.remove('keyboard-open');
-          }
-        }, 100);
-      });
-    });
+    // 已拿掉手機版輸入聚焦隱藏面板邏輯，改由 CSS position: relative 進行完美相容
 
     function closeModal() {
       const overlay = document.getElementById('modalOverlay');
