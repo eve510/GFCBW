@@ -1888,6 +1888,44 @@
       }
     }
 
+    // 統一處理並轉換後端/試算表傳入的日期格式為標準 YYYY-MM-DD
+    function formatIncomingDate(dateVal) {
+      if (!dateVal) return '';
+      
+      // 若為 ISO 8601 格式字串 (例如 "1975-05-30T15:00:00.000Z")
+      if (typeof dateVal === 'string' && dateVal.includes('T')) {
+        try {
+          const d = new Date(dateVal);
+          if (!isNaN(d.getTime())) {
+            const yyyy = d.getFullYear();
+            const mm = String(d.getMonth() + 1).padStart(2, '0');
+            const dd = String(d.getDate()).padStart(2, '0');
+            return `${yyyy}-${mm}-${dd}`;
+          }
+        } catch (e) {
+          console.error("解析 ISO 日期失敗:", dateVal, e);
+        }
+      }
+      
+      // 若已經是符合規範的 YYYY-MM-DD
+      if (typeof dateVal === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(dateVal)) {
+        return dateVal;
+      }
+      
+      // 處理其他文字格式 (如 1975/05/30)
+      if (typeof dateVal === 'string') {
+        const match = dateVal.match(/^(\d{4})[-/](\d{1,2})[-/](\d{1,2})/);
+        if (match) {
+          const yyyy = match[1];
+          const mm = match[2].padStart(2, '0');
+          const dd = match[3].padStart(2, '0');
+          return `${yyyy}-${mm}-${dd}`;
+        }
+      }
+      
+      return dateVal;
+    }
+
     // 日期格式化與自動連字號邏輯
     function initDateAutoFormatter(inputId) {
       const input = document.getElementById(inputId);
@@ -2051,12 +2089,12 @@
       document.getElementById('guestNotes').value = data.guestNotes || '';
 
       // 填充保險與匯款日期
-      document.getElementById('playerDob').value = data.playerDob || '';
+      document.getElementById('playerDob').value = formatIncomingDate(data.playerDob);
       document.getElementById('playerIdCard').value = data.playerIdCard || '';
       document.getElementById('playerEmergContact').value = data.playerEmergContact || '';
       document.getElementById('playerEmergPhone').value = data.playerEmergPhone || '';
 
-      document.getElementById('bankDate').value = data.bankDate || '';
+      document.getElementById('bankDate').value = formatIncomingDate(data.bankDate);
       document.getElementById('bankLast5').value = data.bankLast5 || '';
       document.getElementById('notes').value = data.notes || '';
 
