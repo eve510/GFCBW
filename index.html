@@ -1431,54 +1431,13 @@
         </div>
       </div>
 
-      <!-- 欄位組 6：特別備註與匯款資訊 -->
+      <!-- 欄位組 6：特別備註 -->
       <div class="form-card">
         <div class="form-section-title">
-          <i class="fa-solid fa-money-bill-transfer"></i> 第六步：特別備註與匯款資訊
+          <i class="fa-solid fa-comment-dots"></i> 第六步：特別備註
         </div>
 
-        <!-- 匯款帳戶資訊區塊 -->
-        <div
-          style="background: #e8f5e9; border: 1px solid #c8e6c9; border-radius: var(--border-radius-sm); padding: 16px 20px; margin-bottom: 20px;">
-          <h4
-            style="color: var(--primary-color); margin-bottom: 10px; font-weight: 800; font-size: 0.95rem; display: flex; align-items: center; gap: 8px;">
-            <i class="fa-solid fa-bank"></i> 大會專屬匯款對帳帳戶
-          </h4>
-          <div style="font-size: 0.9rem; color: var(--text-color); line-height: 1.6;">
-            <div><b>銀行名稱</b>：台北富邦銀行 (銀行代碼：012) 南港分行</div>
-            <div><b>戶名</b>：石瑞媛</div>
-            <div><b>匯款帳號</b>：420210288952</div>
-            <div
-              style="font-size: 0.8rem; color: #558b2f; font-weight: 700; margin-top: 8px; display: flex; align-items: center; gap: 4px;">
-              <i class="fa-solid fa-circle-exclamation"></i>
-              <span>匯款完成後，請在此填寫帳號後 5 碼，或隨時回來使用頂部「查詢/修改」回報，以利財務對帳。</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 匯款日期欄位 -->
-        <div class="form-group" style="margin-bottom: 20px;">
-          <label class="field-label" for="bankDate">匯款日期 <span
-              style="font-size: 0.8rem; color: var(--text-light); font-weight: normal;">(選填，可於匯款後再修改回報)</span></label>
-          <div class="input-wrapper">
-            <input type="text" id="bankDate" name="bankDate" class="form-control" placeholder="格式如：2026-06-16" inputmode="numeric" pattern="\d{4}-\d{2}-\d{2}" title="請輸入 YYYY-MM-DD 格式，例如：2026-06-16">
-            <i class="fa-solid fa-calendar-check"></i>
-          </div>
-        </div>
-
-        <!-- 匯款後五碼欄位 -->
-        <div class="form-group" style="margin-bottom: 20px;">
-          <label class="field-label" for="bankLast5">匯款帳號後 5 碼 <span
-              style="font-size: 0.8rem; color: var(--text-light); font-weight: normal;">(選填，可於匯款後再修改回報)</span></label>
-          <div class="input-wrapper">
-            <input type="text" id="bankLast5" name="bankLast5" class="form-control"
-              placeholder="請輸入 5 碼數字 (如：12345，未匯款可先留空)" maxlength="5" pattern="\d{5}"
-              oninput="this.value = this.value.replace(/[^\d]/g, '')">
-            <i class="fa-solid fa-money-check-dollar"></i>
-          </div>
-        </div>
-
-        <div class="form-group">
+        <div class="form-group" style="margin-bottom: 0;">
           <label class="field-label" for="notes">其他需求或特別說明 (同房、素食需求等)</label>
           <div class="input-wrapper">
             <textarea id="notes" name="notes" class="form-control"
@@ -1488,48 +1447,9 @@
         </div>
       </div>
 
-      <!-- 實時計費面板 -->
-      <div class="cost-preview-panel">
-        <div class="cost-preview-header">
-          <i class="fa-solid fa-calculator"></i> 報名預估總費用試算
-        </div>
-
-        <!-- 當天自付區塊 -->
-        <div
-          style="font-size: 0.75rem; font-weight: 700; color: #fffb77; letter-spacing: 0.5px; margin-bottom: 4px; opacity: 0.85;">
-          💳 個人當天自付</div>
-        <div class="cost-breakdown-row">
-          <span>擊球與住宿方案費用：</span>
-          <span id="previewPackageCost">NT$ 0</span>
-        </div>
-
-        <div class="cost-divider" style="margin: 8px 0;"></div>
-
-        <!-- 須先匯款區塊 -->
-        <div
-          style="font-size: 0.75rem; font-weight: 700; color: #ffcc80; letter-spacing: 0.5px; margin-bottom: 4px; opacity: 0.85;">
-          🏦 請先匯款</div>
-        <div class="cost-breakdown-row">
-          <span>大車交通車資費用：</span>
-          <span id="previewTransportCost">NT$ 0</span>
-        </div>
-
-        <div class="cost-breakdown-row">
-          <span>餐費：</span>
-          <span id="previewMealCost">NT$ 0</span>
-        </div>
-
-        <div class="cost-divider"></div>
-
-        <div class="cost-total-row">
-          <div class="cost-total-title">預估個人本次總額：</div>
-          <div class="cost-total-amount" id="previewTotalCost">
-            0<span class="unit">元</span>
-          </div>
-        </div>
-
-        <!-- 提交按鈕 -->
-        <button type="submit" class="submit-btn" id="submitBtn">
+      <!-- 提交按鈕 -->
+      <div style="margin-top: 24px;">
+        <button type="submit" class="submit-btn" id="submitBtn" style="margin-top: 0;">
           <i class="fa-solid fa-paper-plane"></i> 提交報名表單
         </button>
       </div>
@@ -1689,19 +1609,14 @@
               notes: "測試修改"
             });
           } else if (action === 'submitRegistration') {
-            const transferAmt = (payload.transportCost || 0) + (payload.mealCost || 0);
-            const transferLine = transferAmt > 0
-              ? `您須匯款金額為 NT$ ${transferAmt.toLocaleString()} 元，\n匯款帳號：420210288952（台北富邦銀行 012 南港分行，戶名：石瑞媛），\n\n麻煩匯款後請再回到報名網頁作修改，回報後 5 碼即可。`
-              : `您本次無需匯款（方案費用將於當天現場自付）。`;
             successCallback({
               status: 'success',
-              message: '【本地模擬成功】報名成功！您的資料已登錄完成。\n\n' + transferLine
+              message: '【本地模擬成功】報名成功！您的資料已登錄完成。'
             });
           } else if (action === 'updateRegistration') {
-            const transferAmt = (payload.data.transportCost || 0) + (payload.data.mealCost || 0);
             successCallback({
               status: 'success',
-              message: '【本地模擬成功】資料已成功更新儲存！\n須匯款金額：NT$ ' + transferAmt.toLocaleString() + ' 元。'
+              message: '【本地模擬成功】資料已成功更新儲存！'
             });
           }
         }, 1200);
@@ -1800,19 +1715,12 @@
       const selectedPackage = document.querySelector('input[name="package"]:checked');
       if (selectedPackage) {
         packageCost = parseInt(selectedPackage.getAttribute('data-price')) || 0;
-        document.getElementById('previewPackageCost').innerText = 'NT$ ' + packageCost.toLocaleString() + ' 元';
-      } else {
-        document.getElementById('previewPackageCost').innerText = '尚未選擇方案';
       }
 
       // 2. 判斷大車交通費
       const selectedTransport = document.querySelector('input[name="transport"]:checked');
-      const ridesBus = selectedTransport && selectedTransport.value === '搭乘大車遊覽車';
       if (selectedTransport) {
         transportCost = parseInt(selectedTransport.getAttribute('data-price')) || 0;
-        document.getElementById('previewTransportCost').innerText = 'NT$ ' + transportCost.toLocaleString() + ' 元';
-      } else {
-        document.getElementById('previewTransportCost').innerText = '尚未選擇交通';
       }
 
       // 3. 抓用餐選項費用 (單選)；隊友免費，來賓才收費
@@ -1823,22 +1731,13 @@
       if (selectedMeal) {
         if (isGuest) {
           mealCost = parseInt(selectedMeal.getAttribute('data-meal-cost')) || 0;
-          document.getElementById('previewMealCost').innerHTML =
-            'NT$ ' + mealCost.toLocaleString() + ' 元';
         } else {
           mealCost = 0;
-          document.getElementById('previewMealCost').innerHTML =
-            'NT$ 0 元' +
-            (memberType ? ' <span style="font-size:0.72rem; color:#a5d6a7; font-weight:600;">(隊友免費)</span>' : '');
         }
-      } else {
-        mealCost = 0;
-        document.getElementById('previewMealCost').innerText = '尚未選擇用餐';
       }
 
       // 4. 總費用加總
       const totalCost = packageCost + transportCost + mealCost;
-      document.getElementById('previewTotalCost').innerHTML = totalCost.toLocaleString() + ' <span class="unit">元</span>';
 
       // 動態更新乘車保險欄位狀態
       updateInsuranceStepState();
@@ -1964,7 +1863,6 @@
     window.addEventListener('DOMContentLoaded', () => {
       // 初始化日期欄位自動格式化
       initDateAutoFormatter('playerDob');
-      initDateAutoFormatter('bankDate');
 
       const defaultPackageInput = document.querySelector('input[name="package"][value="方案 A：2球+1宿+雙人房"]');
       if (defaultPackageInput) {
@@ -2089,8 +1987,6 @@
       document.getElementById('playerEmergContact').value = data.playerEmergContact || '';
       document.getElementById('playerEmergPhone').value = data.playerEmergPhone || '';
 
-      document.getElementById('bankDate').value = formatIncomingDate(data.bankDate);
-      document.getElementById('bankLast5').value = data.bankLast5 || '';
       document.getElementById('notes').value = data.notes || '';
 
       // 重新計算費用
@@ -2145,8 +2041,8 @@
       const memberType = document.querySelector('input[name="memberType"]:checked')?.value || '';
       const referrerName = document.getElementById('referrerName').value.trim();
       const guestNotes = document.getElementById('guestNotes').value.trim();
-      const bankDate = document.getElementById('bankDate').value.trim();
-      const bankLast5 = document.getElementById('bankLast5').value.trim();
+      const bankDate = '';
+      const bankLast5 = '';
       const notes = document.getElementById('notes').value.trim();
 
       // 保險資料欄位
@@ -2254,8 +2150,6 @@
 
       document.getElementById('email').value = '';
       document.getElementById('guestNotes').value = '';
-      document.getElementById('bankDate').value = '';
-      document.getElementById('bankLast5').value = '';
 
       calculateCost();
     }
