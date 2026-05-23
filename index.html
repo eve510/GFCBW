@@ -1023,7 +1023,7 @@
       </p>
       <ul>
         <li><b>費用說明</b>：擊球與住宿費用為個人自付項目，將依所選方案現場收取。</li>
-        <li><b>交通安排</b>：搭乘大會豪華遊覽車（三排椅新車）者，每人分攤 1,000 元車資。</li>
+        <li><b>交通安排</b>：搭乘大會豪華遊覽車（三排椅新車）者，由大會全額補助（免費）。</li>
       </ul>
     </div>
 
@@ -1273,7 +1273,7 @@
       <!-- 欄位組 3：交通安排 -->
       <div class="form-card">
         <div class="form-section-title">
-          <i class="fa-solid fa-bus"></i> 第三步：交通方式選擇 (須先匯款)
+          <i class="fa-solid fa-bus"></i> 第三步：交通方式選擇
         </div>
 
         <div class="form-group">
@@ -1281,10 +1281,10 @@
           <div class="choice-group-row">
 
             <label class="choice-box-label" id="transportBusLabel" onclick="selectTransport(this)">
-              <input type="radio" name="transport" value="搭乘大車遊覽車" data-price="1000" required>
+              <input type="radio" name="transport" value="搭乘大車遊覽車" data-price="0" required>
               <i class="fa-solid fa-bus choice-box-icon"></i>
               <div class="choice-box-title">搭乘大車遊覽車</div>
-              <div class="choice-box-desc">+NT$ 1,000 元/車資</div>
+              <div class="choice-box-desc">NT$ 0 元 (免費)</div>
             </label>
 
             <label class="choice-box-label" id="transportSelfLabel" onclick="selectTransport(this)">
@@ -1676,7 +1676,7 @@
               package: "方案 G：打球+住宿(自行處理)",
               packageCost: 0,
               transport: "搭乘大車遊覽車",
-              transportCost: 1000,
+              transportCost: 0,
               mealOption: "兩天都用餐(6/16+6/17)",
               mealCost: 3000,
               guestNotes: "",
